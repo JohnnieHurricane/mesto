@@ -1,0 +1,6 @@
+.profile__edit {
+    min-width: 336px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;    
+}
