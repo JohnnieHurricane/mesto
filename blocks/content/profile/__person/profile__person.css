@@ -1,0 +1,6 @@
+.profile__person {
+    display: flex;
+    color: #fff;
+    justify-content: space-between;
+    flex-direction: row;
+}

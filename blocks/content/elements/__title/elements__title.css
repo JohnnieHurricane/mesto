@@ -1,0 +1,8 @@
+.elements__title {
+    margin: 0 0 0 21px;
+    padding: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 245px;
+}

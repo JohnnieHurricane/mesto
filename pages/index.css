@@ -4,7 +4,17 @@
 @import '../blocks/header/header.css';
 @import '../blocks/header/__logo/header__logo.css';
 @import '../blocks/content/content.css';
+@import '../blocks/content/edit/edit.css';
+@import '../blocks/content/edit/__popup/edit__popup.css';
+@import '../blocks/content/edit/__window/edit__window.css';
+@import '../blocks/content/edit/__close/edit__close.css';
+@import '../blocks/content/edit/__title/edit__title.css';
+@import '../blocks/content/edit/__name/edit__name.css';
+@import '../blocks/content/edit/__profession/edit__profession.css';
+@import '../blocks/content/edit/__save/edit__save.css';
+@import '../blocks/content/edit/__button-text/edit__button-text.css';
 @import '../blocks/content/profile/profile.css';
+@import '../blocks/content/profile/__person/profile__person.css';
 @import '../blocks/content/profile/__info/profile__info.css';
 @import '../blocks/content/profile/__image/profile__image.css';
 @import '../blocks/content/profile/__frame/profile__frame.css';

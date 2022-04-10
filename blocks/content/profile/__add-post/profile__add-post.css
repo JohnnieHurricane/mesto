@@ -6,4 +6,11 @@
     align-items: center;
     background-color: black;
     border: 2px solid white;
+    opacity: 1;
+}
+
+.profile__add-post:hover {
+    opacity: .5;
+    transition: 1s ease;
+    cursor: pointer;
 }

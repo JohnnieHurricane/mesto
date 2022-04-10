@@ -1,0 +1,11 @@
+.edit__popup {
+    width: 380px;
+    display: grid;
+    grid-column: 2;
+    grid-row: 2;
+    column-gap: 8px;
+    row-gap: 8px;
+    grid-template-areas:
+    "." "close",
+    "window" ".";
+}
