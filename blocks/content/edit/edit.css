@@ -1,10 +1,18 @@
 .edit {
-    width: 880px;
-    height: 880px;
-    background-color: rgba (255 255 255 .5);
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba (0 0 0 .5);
     position: fixed;
-    display:block;
-    z-index: 2;   
+    display:flex;
+    left: 0;
+    top: 150px;
     visibility: hidden; 
 }
 
+@media screen and (max-width: 320px) {
+    .edit {
+        top: 123px;
+        left: 19px;
+    }
+    
+}

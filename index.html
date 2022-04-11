@@ -11,7 +11,7 @@
     <header class="header">
         <img class="header__logo" src="/images/Logo_header.png" alt="логотип Место Россия">
     </header>
-    <div class="content">
+    <main class="content">
         <div class="edit">
             <div class="edit__popup">
                 <img src="/images/Close_Icon.png" alt="нажмите здесь чтбы закрыть окно редактирования профиля" class="edit__close">
@@ -19,31 +19,28 @@
                     <h2 class="edit__title">Редактировать профиль</h2>
                     <input type="text" class="edit__name" placeholder="Введите имя">
                     <input type="text" class="edit__profession" placeholder="Введите Вашу профессию">
-                    <button class="edit__save">
+                    <button class="edit__save" type="submit">
                     <p class="edit__button-text">Сохранить</p>
                     </button>
                 </div>
             </div>
         </div>
-        <div class="profile">
-            <div class="profile__person">
-                <div class="profile__frame">
-                    <img src="/images/photo_profile.jpg" alt="фотография профиля" class="profile__image">
-                </div>
+        <section class="profile">
+            <div class="profile__person">                
+                <img src="/images/photo_profile.jpg" alt="фотография профиля" class="profile__image">                
                 <div class="profile__info">
                     <div class="profile__edit">
-                        <h1 class="profile__name">Я Бэндер</h1>
-                        <button class="profile__edit-button">
-                         <img src="./images/Edit Button.png" alt="нажмите здесь чтобы редактировать профиль">
+                        <h1 class="profile__name">Бендер Родригез</h1>
+                        <button class="profile__edit-button" type="button">                         
                         </button>
                     </div>
                     <p class="profile__profession">Дайте мне прут! (Робот-сгибальщик)</p>
-                    </div>
                 </div>
+            </div>
                 <button class="profile__add-post">
                     <img src="/images/plass_image.png" alt="нажать здесь чтобы добавить запись" class="profile__add-image">
                 </button>
-            </div>
+        </section>
         <div class="elements">
             <div class="elements__item">
                 <img src="/images/karachaevsk.png" alt="картинка робот-бендер с сигарой" class="elements__photo">

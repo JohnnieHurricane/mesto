@@ -14,3 +14,11 @@
     transition: 1s ease;
     cursor: pointer;
 }
+
+@media screen and (max-width: 320px) {
+    .profile__add-post {
+        width: 282px;
+        margin-top: 30px;
+    }
+    
+}

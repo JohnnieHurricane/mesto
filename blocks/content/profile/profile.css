@@ -1,9 +1,24 @@
 .profile {
     max-width: 880px;
-    height: 120px;
     overflow: hidden;
     display: flex;
     color: white;
     align-items: center;
     justify-content: space-between;
+    margin-top: 40px;
+}
+
+@media screen and (max-width: 881px) {
+    .profile {
+        max-width: 90vw;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .profile {
+        max-width: 282px;
+        display: grid;
+        grid-column: 282px;
+        margin: 73px 19px 0;
+    }
 }

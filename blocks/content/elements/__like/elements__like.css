@@ -1,8 +1,8 @@
 .elements__like {
-    margin-right: 30px;
     width: 23px;
     height: 19px;
     opacity: 1;
+    align-self: center;
     background: url('/images/like_disabled.png');
     background-size: contain;
     background-repeat: no-repeat;

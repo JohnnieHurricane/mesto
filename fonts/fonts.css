@@ -1,6 +1,6 @@
 /* inter-regular - latin_cyrillic */
 @font-face {
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     src: url('../fonts/inter-v8-latin_cyrillic-regular.eot'); /* IE9 Compat Modes */
@@ -12,7 +12,7 @@
   }
   /* inter-500 - latin_cyrillic */
   @font-face {
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
     src: url('../fonts/inter-v8-latin_cyrillic-500.eot'); /* IE9 Compat Modes */
@@ -24,7 +24,7 @@
   }
   /* inter-900 - latin_cyrillic */
   @font-face {
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 900;
     src: url('../fonts/inter-v8-latin_cyrillic-900.eot'); /* IE9 Compat Modes */
