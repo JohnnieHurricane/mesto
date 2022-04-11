@@ -1,4 +1,4 @@
-.edit__save {
+.popup__save {
     background-color: black;
     color: white;
     width: 358px;
@@ -8,7 +8,7 @@
     border-radius: 2px;
 }
 
-.edit__save:hover {
+.popup__save:hover {
     opacity: .8;
     transition: 0.5s ease;
 }

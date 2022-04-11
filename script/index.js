@@ -1,0 +1,5 @@
+let popup = document.querySelector('.edit')
+let popupClose = document.querySelector('.popup__close')
+let inputName = document.querySelector('.popup__name')
+let inputProfession = document.querySelector('popup__profession')
+let submit = document.querySelector('.popup__save')

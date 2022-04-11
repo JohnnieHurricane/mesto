@@ -1,9 +1,9 @@
-.edit__close {
+.popup__close {
     grid-area: close;
     opacity: 1;
 }
 
-.edit__close:hover {
+.popup__close:hover {
     opacity: 0.5;
     transition: 1s ease;
 }
