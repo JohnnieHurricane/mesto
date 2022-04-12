@@ -1,4 +1,5 @@
 .elements {
+    max-width: 880px;
     display: -ms-grid;
     display: grid;
     margin: 49px auto 0;
