@@ -1,14 +1,27 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 .popup__container {
     width: 380px;
     height: 330px;
     position: relative;
-    align-self: center;
+    -ms-grid-row-align: center;
+        align-self: center;
+    display: -ms-grid;
     display: grid;
+    -ms-grid-column: 2;
     grid-column: 2;
+    -ms-grid-row: 2;
     grid-row: 2;
-    column-gap: 8px;
+    -webkit-column-gap: 8px;
+       -moz-column-gap: 8px;
+            column-gap: 8px;
     row-gap: 8px;
-    grid-template-areas:
+        grid-template-areas:
     ". close"
     "window .";
 }
@@ -16,10 +29,12 @@
 @media screen and (max-width: 320px) {
     .popup__container {
         width: 282px;
+        -ms-grid-column: 1;
         grid-column: 1;
+        -ms-grid-row: 2;
         grid-row: 2;
         justify-items: end;
-        grid-template-areas:
+            grid-template-areas:
         "close"
         "window";
     }

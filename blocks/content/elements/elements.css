@@ -1,15 +1,37 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 .elements {
+    display: -ms-grid;
     display: grid;
     margin: 49px auto 0;
     padding: 0;
+    -ms-grid-columns: 1fr 17px 1fr 17px 1fr;
     grid-template-columns: repeat(3, 1fr);
+    -ms-grid-rows: 1fr;
     grid-template-rows: repeat(1, 1fr);
     row-gap: 20px;
-    column-gap: 17px;
+    -webkit-column-gap: 17px;
+       -moz-column-gap: 17px;
+            column-gap: 17px;
+}.elements > *:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+}.elements > *:nth-child(2) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+}.elements > *:nth-child(3) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 5;
 }
 
 @media screen and (max-width: 320px) {
     .elements {
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
         width: 282px;
         margin: 36px auto 0;
