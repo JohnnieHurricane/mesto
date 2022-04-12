@@ -5,6 +5,7 @@
 @import '../blocks/header/__logo/header__logo.css';
 @import '../blocks/content/content.css';
 @import '../blocks/content/popup/popup.css';
+@import '../blocks/content/popup/popup_isopen.css';
 @import '../blocks/content/popup/__container/popup__container.css';
 @import '../blocks/content/popup/__window/popup__window.css';
 @import '../blocks/content/popup/__close/popup__close.css';
