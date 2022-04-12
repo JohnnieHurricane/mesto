@@ -1,5 +1,5 @@
 .footer {
-    width: 318px;  
+    max-width: 880px;  
     color: white;
     margin: 67px 200px 60px;    
 }
