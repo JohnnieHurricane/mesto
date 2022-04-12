@@ -3,7 +3,15 @@
     opacity: 1;
 }
 
+@media screen and (max-width: 320px) {
+    .popup__close {
+        width: 20px;
+    }
+    
+}
+
 .popup__close:hover {
     opacity: 0.5;
     transition: 1s ease;
+    cursor: pointer;
 }

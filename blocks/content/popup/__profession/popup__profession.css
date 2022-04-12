@@ -1,0 +1,19 @@
+.popup__profession {
+    border: none;
+    border-bottom: 1px solid gray;
+    width: 358px;
+    margin: 0 36px 48px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+@media screen and (max-width: 320px) {
+    .popup__profession {
+        width: 238px;
+        height: 27px;
+        margin: 43px auto 0;
+    }
+}
