@@ -1,14 +1,14 @@
 .profile__edit {
     max-width: 336px;
-    display: flex;   
+    display: flex;
     align-items: baseline;
+    box-sizing: border-box;
 }
 
 @media screen and (max-width: 320px) {
     .profile__edit {
         width: 282px;
-        margin: 22px auto 0;
-        justify-content: center;
+        margin: 22px 20px 0;
     }
     
 }
