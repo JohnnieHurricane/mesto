@@ -21,7 +21,7 @@ function formSubmitHandler (evt) { //сохранить изменения
     personName.textContent = inputName.value
     job.textContent = inputProfession.value
     // Получите значение полей jobInput и nameInput из свойства value
-
+    popup.classList.remove('popup_isopen')
     // Выберите элементы, куда должны быть вставлены значения полей
 
     // Вставьте новые значения с помощью textContent
