@@ -24,7 +24,7 @@
     border: 0;
     padding: 0;
     opacity: 1;
-    background: url('/images/Edit Button.png');
+    background: url('./images/Edit Button.png');
 }
 
 .profile__edit-button:hover {

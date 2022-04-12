@@ -12,13 +12,13 @@
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;
-    background: url('/images/like_disabled.png');
+    background: url('./images/like_disabled.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .elements__like:active {
-    background: url('/images/like_active.png');
+    background: url('./images/like_active.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
