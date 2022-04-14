@@ -43,3 +43,4 @@ function closePopup () { //закрыть Попап
 submit.addEventListener('click', formSubmitHandler); 
 popupBtn.addEventListener('click', openPopup)
 popupClose.addEventListener('click', closePopup)
+popup.addEventListener('click', closePopup)

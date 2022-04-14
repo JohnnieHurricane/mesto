@@ -8,7 +8,7 @@
 .popup {
     width: 100%;
     min-height: 100%;
-    background-color: rgba(0  0  0 .5);
+    background-color: rgba(0, 0,  0, .5);
     position: fixed;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
