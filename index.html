@@ -11,18 +11,7 @@
         <header class="header">
             <img class="header__logo" src="./images/Logo_header.png" alt="логотип Место Россия" />
         </header>
-        <main class="content">
-            <section class="popup">
-                <form class="popup__container">
-                    <img src="./images/Close Icon.png" alt="нажмите здесь чтбы закрыть окно редактирования профиля" class="popup__close" />
-                    <div class="popup__window">
-                        <h2 class="popup__title">Редактировать профиль</h2>
-                        <input type="text" class="popup__name" placeholder="Введите имя" />
-                        <input type="text" class="popup__profession" placeholder="Введите Вашу профессию" />
-                        <button class="popup__save" type="submit">Сохранить</button>
-                    </div>
-                </form>
-            </section>
+        <main class="content">            
             <section class="profile">
                 <div class="profile__person">
                     <img src="./images/photo_profile.jpg" alt="фотография профиля" class="profile__image" />
@@ -86,6 +75,17 @@
         <footer class="footer">
             <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
         </footer>
+        <div class="popup">
+            <div class="popup__container">
+                <img src="./images/Close Icon.png" alt="нажмите здесь чтбы закрыть окно редактирования профиля" class="popup__close" />
+                <div class="popup__window">
+                    <h2 class="popup__title">Редактировать профиль</h2>
+                    <input type="text" class="popup__name" placeholder="Введите имя" />
+                    <input type="text" class="popup__profession" placeholder="Введите Вашу профессию" />
+                    <button class="popup__save" type="submit">Сохранить</button>
+                </div>
+            </div>
+        </div>
         <script src="./script/index.js"></script>
     </body>
 </html>
