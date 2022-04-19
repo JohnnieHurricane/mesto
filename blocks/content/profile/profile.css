@@ -7,7 +7,6 @@
 
 .profile {
     max-width: 880px;
-    overflow: hidden;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -23,7 +22,7 @@
 
 @media screen and (max-width: 881px) {
     .profile {
-        max-width: 90vw;
+        max-width: 860px;
     }
 }
 
@@ -34,6 +33,6 @@
         display: grid;
         -ms-grid-column: 282;
         grid-column: 282px;
-        margin: 73px 19px 0;
+        margin: 73px auto 0;
     }
 }
