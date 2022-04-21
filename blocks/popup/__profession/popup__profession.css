@@ -10,6 +10,12 @@
     line-height: 17px;
 }
 
+@media screen and (max-width: 480px) {
+    .popup__profession {
+        max-width: 260px;
+    }
+}
+
 @media screen and (max-width: 320px) {
     .popup__profession {
         width: 238px;

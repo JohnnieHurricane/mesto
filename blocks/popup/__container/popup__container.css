@@ -18,6 +18,13 @@
     "window .";
 }
 
+@media screen and (max-width: 460px) {
+    .popup__container {
+        width: 300px;
+    }
+    
+}
+
 @media screen and (max-width: 320px) {
     .popup__container {
         width: 282px;

@@ -1,10 +1,3 @@
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.3.6,
-* Autoprefixer: v10.3.1
-* Browsers: last 4 version
-*/
-
 .profile {
     max-width: 880px;
     display: -webkit-box;
@@ -22,7 +15,7 @@
 
 @media screen and (max-width: 881px) {
     .profile {
-        max-width: 860px;
+        max-width: 90%;
     }
 }
 
