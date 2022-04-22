@@ -13,13 +13,7 @@
     margin-top: 40px;
 }
 
-@media screen and (max-width: 881px) {
-    .profile {
-        max-width: 90%;
-    }
-}
-
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 880px) {
     .profile {
         max-width: 282px;
         display: -ms-grid;
