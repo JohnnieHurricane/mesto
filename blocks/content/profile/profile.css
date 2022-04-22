@@ -15,18 +15,6 @@
 
 @media screen and (max-width: 881px) {
     .profile {
-        max-width: 760px;
-    }
-}
-
-@media screen and (max-width: 761px) {
-    .profile {
-        max-width: 450px;
-    }
-}
-
-@media screen and (max-width: 451px) {
-    .profile {
         max-width: 282px;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
