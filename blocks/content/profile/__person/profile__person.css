@@ -8,7 +8,7 @@
             align-items:center;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 321px) {
     .profile__person {
         max-width: 282px;
         -webkit-box-orient: vertical;
