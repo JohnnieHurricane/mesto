@@ -13,7 +13,19 @@
     margin-top: 40px;
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 881px) {
+    .profile {
+        max-width: 760px;
+    }
+}
+
+@media screen and (max-width: 761px) {
+    .profile {
+        max-width: 450px;
+    }
+}
+
+@media screen and (max-width: 450px) {
     .profile {
         max-width: 282px;
         display: -ms-grid;
