@@ -3,6 +3,7 @@
 @import '../blocks/page/page.css';
 @import '../blocks/header/header.css';
 @import '../blocks/header/__logo/header__logo.css';
+@import '../blocks/header/__underline/header__underline.css';
 @import '../blocks/content/content.css';
 @import '../blocks/popup/popup.css';
 @import '../blocks/popup/popup_isopen.css';
@@ -12,6 +13,7 @@
 @import '../blocks/popup/__title/popup__title.css';
 @import '../blocks/popup/__name/popup__name.css';
 @import '../blocks/popup/__profession/popup__profession.css';
+@import '../blocks/popup/__underline/popup__underline.css';
 @import '../blocks/popup/__save/popup__save.css';
 @import '../blocks/content/profile/profile.css';
 @import '../blocks/content/profile/__person/profile__person.css';
