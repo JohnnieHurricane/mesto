@@ -17,7 +17,7 @@
     line-height: 22px;
     text-align: center;
 }
-
+/*не понял, какие проблемы с кнопой, додумался только паддинг обнулить*/
 
 @media screen and (max-width: 881px) {
     .popup__save {
