@@ -5,7 +5,7 @@
 
 @media screen and (max-width: 321px) {
     .content {
-        max-width: 319px;
-        margin: 0;
+        max-width: 282px;
+        margin: 38px auto 0;
     }    
 }
