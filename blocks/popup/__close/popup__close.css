@@ -1,4 +1,9 @@
 .popup__close {
+    width: 32px;
+    height: 32px;
+    background: url(https://johnniehurricane.github.io/mesto/images/Close_Icon.png) no-repeat;
+    background-size: contain;
+    border: none;
     grid-area: close;
     opacity: 1;
 }
@@ -6,6 +11,7 @@
 @media screen and (max-width: 321px) {
     .popup__close {
         width: 20px;
+        height: 20px;
     }
     
 }
