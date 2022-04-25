@@ -1,6 +1,7 @@
 .profile__add-post {
     width: 150px;
     height: 50px;
+    padding: 0;
     border: 2px solid white;
     background-color:black;
     background-image: url(../../../images/plass_image.png);
