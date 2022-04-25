@@ -1,21 +1,20 @@
-.profile__person {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    color: #fff;
-    -webkit-box-align:center;
-        -ms-flex-align:center;
-            align-items:center;
+.profile__profession {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+    margin: 18px 0 0;
+    max-width: 350px;
 }
 
 @media screen and (max-width: 321px) {
-    .profile__person {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
+    .profile__profession {  
+        max-width: 282px;
+        font-family: 'Inter';
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
     }
 }
