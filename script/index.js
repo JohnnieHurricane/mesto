@@ -2,7 +2,7 @@ const popup = document.querySelector('.popup')
 const popupClose = popup.querySelector('.popup__close')
 let inputName = popup.querySelector('.popup__name') 
 let inputProfession = popup.querySelector('.popup__profession') 
-let changes = document.forms.popupForm;
+let editProfileForm = document.forms.popupForm;
 const profile = document.querySelector('.profile')
 let personName = profile.querySelector('.profile__name')
 let job = profile.querySelector('.profile__profession')
@@ -27,6 +27,6 @@ function closePopup () { //закрыть Попап
     inputProfession.value = job.textContent
 }
 
-changes.addEventListener('submit', formSubmitHandler); 
+editProfileForm.addEventListener('submit', formSubmitHandler); 
 popupBtn.addEventListener('click', openPopup)
 popupClose.addEventListener('click', closePopup)
