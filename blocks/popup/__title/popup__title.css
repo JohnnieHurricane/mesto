@@ -10,7 +10,7 @@
 
 @media screen and (max-width: 881px) {
     .popup__title {
-        margin: 25px auto 0;
+        margin: 25px 22px 0;
         font-size: 18px;
         line-height: 22px;
     }    

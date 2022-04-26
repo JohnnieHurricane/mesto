@@ -76,12 +76,14 @@
         <div class="popup">
             <div class="popup__container">
                 <button class="popup__close" type="button"></button>
-                <form class="popup__profile-form" name="popupForm">
+                <div class="popup__edit-window">
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <input type="text" name="popupName" class="popup__name" placeholder="Введите имя" />
-                    <input type="text"  name="popupProf" class="popup__profession" placeholder="Введите Вашу профессию" />
-                    <button class="popup__save" name="popupSubmit" type="submit">Сохранить</button>
-                </form>
+                    <form action="" class="popup__profile-form" name="popupForm">
+                        <input type="text" name="popupName" class="popup__name" placeholder="Введите имя" />
+                        <input type="text"  name="popupProf" class="popup__profession" placeholder="Введите Вашу профессию" />
+                        <button class="popup__save" name="popupSubmit" type="submit">Сохранить</button>
+                    </form>
+                </div>
             </div>
         </div>
         <script src="./script/index.js"></script>
