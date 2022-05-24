@@ -1,5 +1,8 @@
 .elements__item { 
     width: 282px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
     background-color: white;
     border-radius: 10px;
 }

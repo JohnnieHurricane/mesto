@@ -1,34 +1,3 @@
 .elements {
     max-width: 880px;
-    display: -ms-grid;
-    display: grid;
-    margin: 49px auto 0;
-    padding: 0;
-    grid-template-columns: repeat(auto-fill, 282px);
-    -ms-grid-rows: 1fr;
-    grid-template-rows: repeat(1, 1fr);
-    gap: 20px 17px;
-    justify-content: center;
-}
-
-@media screen and (max-width: 881px) {
-    .elements {
-        max-width: 760px;
-        margin: 36px auto 0;
-    }
-    
-}
-
-@media screen and (max-width: 630px) {
-    .elements {
-        max-width: 550px;
-    }
-    
-}
-
-@media screen and (max-width: 321px) {
-    .elements {
-        max-width: 320px;
-    }
-    
 }

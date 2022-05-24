@@ -1,91 +1,116 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./pages/index.css" />
-        <title>Mesto Russia</title>
-    </head>
-    <body class="page">
-        <header class="header">
-            <img class="header__logo" src="./images/Logo_header.png" alt="логотип Место Россия" />
-        </header>
-        <main class="content">            
-            <section class="profile">
-                <div class="profile__person">
-                    <img src="./images/photo_profile.jpg" alt="фотография профиля" class="profile__image" />
-                    <div class="profile__info">
-                        <div class="profile__edit">
-                            <h1 class="profile__name">Бендер Родригез</h1>
-                            <button class="profile__edit-button" type="button"></button>
-                        </div>
-                        <p class="profile__profession">Дайте мне прут! (Робот-сгибальщик)</p>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <title>Mesto Russia</title>
+</head>
+
+<body class="page">
+    <header class="header">
+        <img class="header__logo" src="./images/Logo_header.png" alt="логотип Место Россия" />
+    </header>
+    <main class="content">
+        <section class="profile">
+            <div class="profile__person">
+                <img src="./images/photo_profile.jpg" alt="фотография профиля" class="profile__image" />
+                <div class="profile__info">
+                    <div class="profile__edit">
+                        <h1 class="profile__name">Бендер Родригез</h1>
+                        <button class="profile__edit-button" type="button"></button>
                     </div>
+                    <p class="profile__profession">Дайте мне прут! (Робот-сгибальщик)</p>
                 </div>
-                <button class="profile__add-post" type="button"></button>
-            </section>
-            <section class="elements">
-                <div class="elements__item">
+            </div>
+            <button class="profile__add-post" type="button"></button>
+        </section>
+        <section class="elements">
+            <ul class="elements__list">
+                <li class="elements__item">
                     <img src="./images/karachaevsk.png" alt="картинка робот-бендер с сигарой" class="elements__photo" />
                     <div class="elements__description">
                         <h2 class="elements__title">Бендер с сигарой</h2>
                         <button class="elements__like" type="button"></button>
                     </div>
-                </div>
-                <div class="elements__item">
-                    <img src="./images/gora_elbrus_1.png" alt="картинка робот-бендер с сигарой и сварочной горелкой" class="elements__photo" />
+                </li>
+                <li class="elements__item">
+                    <img src="./images/gora_elbrus_1.png" alt="картинка робот-бендер с сигарой и сварочной горелкой"
+                        class="elements__photo" />
                     <div class="elements__description">
                         <h2 class="elements__title">Бендер с сигарой и сварочной горелкой</h2>
                         <button class="elements__like" type="button"></button>
                     </div>
-                </div>
-                <div class="elements__item">
-                    <img src="./images/dombay_1.png" alt="картинка робот-бендер с сигарой и пьяными глазами" class="elements__photo" />
+                </li>
+                <li class="elements__item">
+                    <img src="./images/dombay_1.png" alt="картинка робот-бендер с сигарой и пьяными глазами"
+                        class="elements__photo" />
                     <div class="elements__description">
                         <h2 class="elements__title">Бендер с сигарой и пьяными глазами</h2>
                         <button class="elements__like" type="button"></button>
                     </div>
-                </div>
-                <div class="elements__item">
-                    <img src="./images/gora_elbrus_2.png" alt="картинка робот-бендер с сигарой требует поцеловать его блестящий зад" class="elements__photo" />
+                </li>
+                <li class="elements__item">
+                    <img src="./images/gora_elbrus_2.png"
+                        alt="картинка робот-бендер с сигарой требует поцеловать его блестящий зад"
+                        class="elements__photo" />
                     <div class="elements__description">
                         <h2 class="elements__title">Бендер с сигарой требует поцеловать его блестящий зад</h2>
                         <button class="elements__like" type="button"></button>
                     </div>
-                </div>
-                <div class="elements__item">
-                    <img src="./images/dombay_2.jpg" alt="картинка робот-бендер без сигары но с коктейлем" class="elements__photo" />
+                </li>
+                <li class="elements__item">
+                    <img src="./images/dombay_2.jpg" alt="картинка робот-бендер без сигары но с коктейлем"
+                        class="elements__photo" />
                     <div class="elements__description">
                         <h2 class="elements__title">Бендер без сигары но с коктейлем</h2>
                         <button class="elements__like" type="button"></button>
                     </div>
-                </div>
-                <div class="elements__item">
-                    <img src="./images/karach_cherk.png" alt="картинка робот-бендер без сигары но в темных очках и с пушкой" class="elements__photo" />
+                </li>
+                <li class="elements__item">
+                    <img src="./images/karach_cherk.png"
+                        alt="картинка робот-бендер без сигары но в темных очках и с пушкой" class="elements__photo" />
                     <div class="elements__description">
                         <h2 class="elements__title">Бендер без сигары но в темных очках и с пушкой</h2>
                         <button class="elements__like" type="button"></button>
                     </div>
-                </div>
-            </section>
-        </main>
-        <footer class="footer">
-            <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
-        </footer>
-        <div class="popup">
-            <div class="popup__container">
-                <button class="popup__close" type="button"></button>
-                <div class="popup__edit-window">
-                    <h2 class="popup__title">Редактировать профиль</h2>
-                    <form class="popup__profile-form" name="popupForm">
-                        <input type="text" name="popupName" class="popup__name" placeholder="Введите имя" />
-                        <input type="text"  name="popupProf" class="popup__profession" placeholder="Введите Вашу профессию" />
-                        <button class="popup__save" name="popupSubmit" type="submit">Сохранить</button>
-                    </form>
-                </div>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer class="footer">
+        <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+    </footer>
+    <div class="popup">
+        <div class="popup__container">
+            <button class="popup__close" type="button"></button>
+            <div class="popup__edit-window">
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <form class="popup__profile-form" name="popupForm">
+                    <input type="text" name="popupName" class="popup__name" placeholder="Введите имя" />
+                    <input type="text" name="popupProf" class="popup__profession"
+                        placeholder="Введите Вашу профессию" />
+                    <button class="popup__save" name="popupSubmit" type="submit">Сохранить</button>
+                </form>
             </div>
         </div>
-        <script src="./script/index.js"></script>
-    </body>
+    </div>
+    <div class="popup">
+        <div class="popup__container">
+            <button class="popup__close" type="button"></button>
+            <div class="popup__edit-window">
+                <h2 class="popup__title">Новое место</h2>
+                <form class="popup__profile-form" name="popupForm">
+                    <input type="text" name="popupName" class="popup__name" placeholder="Название" />
+                    <input type="text" name="popupProf" class="popup__profession" placeholder="Ссылка на картинку" />
+                    <button class="popup__save" name="popupSubmit" type="submit">Создать</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="./script/index.js"></script>
+</body>
+
 </html>

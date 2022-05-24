@@ -25,6 +25,7 @@
 @import '../blocks/profile/__add-post/profile__add-post.css';
 @import '../blocks/profile/__add-image/profile__add-image.css';
 @import '../blocks/elements/elements.css';
+@import '../blocks/elements/__list/elements__list.css';
 @import '../blocks/elements/__item/elements__item.css';
 @import '../blocks/elements/__photo/elements__photo.css';
 @import '../blocks/elements/__description/elements__description.css';
