@@ -12,9 +12,9 @@
 
 .profile__add-post:hover {
     opacity: .5;
-    -webkit-transition: 1s ease;
-    -o-transition: 1s ease;
-    transition: 1s ease;
+    -webkit-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    transition: 0.3s ease;
     cursor: pointer;
 }
 
