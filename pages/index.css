@@ -14,6 +14,8 @@
 @import '../blocks/popup/__name/popup__name.css';
 @import '../blocks/popup/__profession/popup__profession.css';
 @import '../blocks/popup/__save/popup__save.css';
+@import '../blocks/popup/__new-title/popup__new-title.css';
+@import '../blocks/popup/__new-link/popup__new-link.css';
 @import '../blocks/profile/profile.css';
 @import '../blocks/profile/__person/profile__person.css';
 @import '../blocks/profile/__info/profile__info.css';
