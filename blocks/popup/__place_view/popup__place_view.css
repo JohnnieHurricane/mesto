@@ -1,5 +1,5 @@
 .popup__place_view {
-    width: 100%;
-    min-height: 100%;
+    width: 100vw;
+    max-height: 100vh;
     background-color: rgba(0, 0, 0, .9);
 }
