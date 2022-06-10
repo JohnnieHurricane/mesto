@@ -1,0 +1,9 @@
+.popup__review {
+    display: grid;
+    grid-template-areas:
+    ". close"
+    "image ."
+    "card-title .";
+    column-gap: 8px;
+    row-gap: 8px, 10px;
+}

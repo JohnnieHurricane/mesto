@@ -16,6 +16,9 @@
 @import '../blocks/popup/__save/popup__save.css';
 @import '../blocks/popup/__new-title/popup__new-title.css';
 @import '../blocks/popup/__new-link/popup__new-link.css';
+@import '../blocks/popup/__review/popup__review.css';
+@import '../blocks/popup/__card-image/popup__card-image.css';
+@import '../blocks/popup/__card-title/popup__card-title.css';
 @import '../blocks/profile/profile.css';
 @import '../blocks/profile/__person/profile__person.css';
 @import '../blocks/profile/__info/profile__info.css';
@@ -33,5 +36,6 @@
 @import '../blocks/elements/__description/elements__description.css';
 @import '../blocks/elements/__title/elements__title.css';
 @import '../blocks/elements/__like/elements__like.css';
+@import '../blocks/elements/__like/elements__like_active.css';
 @import '../blocks/footer/footer.css';
 @import '../blocks/footer/__copyright/footer__copyright.css';
