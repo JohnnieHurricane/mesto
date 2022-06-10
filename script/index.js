@@ -132,3 +132,5 @@ addCardButton.addEventListener('click', openPopupCard)
 popupClosePlaceNewCard.addEventListener('click', closePopupCard)
 popupNewCardForm.addEventListener('submit', cardSubmitHandler)
 popupCloseView.addEventListener('click', closePopupView)
+
+//чуть запутался в гите. Сперва закомитил и запушил, а потом смерджил с мейном и чет не робит
