@@ -7,8 +7,8 @@ const viewPopup = document.querySelector('.popup_place_view')
 const popupCloseView = document.querySelector('.popup__close_place_view')
 const popupPlaceNewCardTitle = document.querySelector('.popup__new-title')
 const popupPlaceNewCardLink = document.querySelector('.popup__new-link')
-let inputName = popupPlaceProfile.querySelector('.popup__name')
-let inputProfession = popupPlaceProfile.querySelector('.popup__profession')
+const inputName = popupPlaceProfile.querySelector('.popup__name')
+const inputProfession = popupPlaceProfile.querySelector('.popup__profession')
 let editProfileForm = document.forms.popupProfileForm
 let popupNewCardForm = document.forms.popupCardForm
 const profile = document.querySelector('.profile')
@@ -17,32 +17,6 @@ let job = profile.querySelector('.profile__profession')
 const popupEditUser = profile.querySelector('.profile__edit-button')
 const cardsTable = document.querySelector(".elements__list")
 const cardsTemplate = document.querySelector(".cards__template")
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
 
 function renderCards() {
     const getElement = initialCards.map(renderCard)
