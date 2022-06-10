@@ -1,9 +1,11 @@
 .popup__review {
     display: grid;
+    max-height: 75hv;   
+    max-width: 75vw; 
     grid-template-areas:
     ". close"
     "image ."
     "card-title .";
-    column-gap: 8px;
-    row-gap: 8px, 10px;
+    gap: 8px;
+    grid-template-rows: auto;
 }
