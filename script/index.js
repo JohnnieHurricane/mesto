@@ -17,6 +17,7 @@ let job = profile.querySelector('.profile__profession')
 const popupEditUser = profile.querySelector('.profile__edit-button')
 const cardsTable = document.querySelector(".elements__list")
 const cardsTemplate = document.querySelector(".cards__template")
+const popupPlaceView = document.querySelector('.popup_place_view')
 
 function renderCards() {
     const getElement = initialCards.map(renderCard)
@@ -29,62 +30,50 @@ function renderCard(item) {
     const deleteCardButton = elementFromTempale.querySelector(".elements__delete-btn")    
     const like = elementFromTempale.querySelector('.elements__like')
     const photo = elementFromTempale.querySelector('.elements__photo')
-    cardTitle.textContent = item.name
+    cardTitle.textContent = item.name    
     elementFromTempale.querySelector(".elements__photo").src = item.link
+    elementFromTempale.querySelector(".elements__photo").alt = item.name
     deleteCardButton.addEventListener('click', function removeCard(evt) {
         const removeButton = evt.target.closest('.elements__item')
         removeButton.remove()
     })
     like.addEventListener('click', function(evt) {
-        const likeButton = evt.target.closest('.elements__like')
-        likeButton.classList.add('elements__like_active')
+        evt.target.classList.toggle('elements__like_active')
     })    
     photo.addEventListener('click', function(evt) {
         const photo = evt.target.closest('.elements__photo')
         const cardElement = photo.closest('.elements__item')
         const popupCardTitle = cardElement.querySelector('.elements__title')
-        const popupCardImage = cardElement.querySelector('.elements__photo')
-        const popupPlaceView = document.querySelector('.popup_place_view')
+        const popupCardImage = cardElement.querySelector('.elements__photo')        
         const viewCardImage = popupPlaceView.querySelector('.popup__card-image')
         const viewCardTitle = popupPlaceView.querySelector('.popup__card-title')
+        viewCardImage.alt = viewCardTitle.textContent
         viewCardImage.src = popupCardImage.src
         viewCardTitle.textContent = popupCardTitle.textContent
-        popupPlaceView.classList.add('popup_opened')
+        openPopup(popupPlaceView)
     })
     return elementFromTempale
-}
-
-function viewCardHandler() {
-    viewPopup.classList.add('.popup__opened')
 }
 
 function formSubmitHandler(evt) { //сохранить изменения
     evt.preventDefault()
     personName.textContent = inputName.value
     job.textContent = inputProfession.value
-    popupPlaceProfile.classList.toggle('popup_opened')
+    togglePopup(popupPlaceProfile)
+}
+
+function openPopup(popup) {
+    popup.classList.add('popup_opened')
+}
+
+function closePopup(popup) {
+    popup.classList.remove('popup_opened')
 }
 
 function openPopupInfo() { //открыть Попап
     inputName.value = personName.textContent
     inputProfession.value = job.textContent
-    popupPlaceProfile.classList.add('popup_opened')
-}
-
-function openPopupCard() {
-    popupPlaceNewCard.classList.add('popup_opened')
-}
-
-function closePopupInfo() { //закрыть Попап  
-    popupPlaceProfile.classList.remove('popup_opened')
-}
-
-function closePopupCard() {
-    popupPlaceNewCard.classList.remove('popup_opened')
-}
-
-function closePopupView() {
-    viewPopup.classList.remove('popup_opened')
+    openPopup(popupPlaceProfile)
 }
 
 function cardSubmitHandler(evt) {
@@ -93,7 +82,7 @@ function cardSubmitHandler(evt) {
     const popupPlaceNewCardLinkValue = document.querySelector('.popup__new-link').value
     const newTemplateCard = renderCard({ name: newTitleValue, link: popupPlaceNewCardLinkValue })
     cardsTable.prepend(newTemplateCard)
-    popupPlaceNewCard.classList.toggle('popup_opened')
+    closePopup(popupPlaceNewCard)
     popupNewCardForm.reset()
 }
 
@@ -101,10 +90,8 @@ renderCards()
 
 editProfileForm.addEventListener('submit', formSubmitHandler)
 popupEditUser.addEventListener('click', openPopupInfo)
-popupCloseInfo.addEventListener('click', closePopupInfo)
-addCardButton.addEventListener('click', openPopupCard)
-popupClosePlaceNewCard.addEventListener('click', closePopupCard)
+popupCloseInfo.addEventListener('click', function() {closePopup(popupPlaceProfile)})
+addCardButton.addEventListener('click', function() {openPopup(popupPlaceNewCard)})
+popupClosePlaceNewCard.addEventListener('click', function() {closePopup(popupPlaceNewCard)})
 popupNewCardForm.addEventListener('submit', cardSubmitHandler)
-popupCloseView.addEventListener('click', closePopupView)
-
-//чуть запутался в гите. Сперва закомитил и запушил, а потом смерджил с мейном и чет не робит
+popupCloseView.addEventListener('click', function() {closePopup(popupPlaceView)})
