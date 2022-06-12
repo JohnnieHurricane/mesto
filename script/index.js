@@ -9,11 +9,11 @@ const popupPlaceNewCardTitle = document.querySelector('.popup__new-title')
 const popupPlaceNewCardLink = document.querySelector('.popup__new-link')
 const inputName = popupPlaceProfile.querySelector('.popup__name')
 const inputProfession = popupPlaceProfile.querySelector('.popup__profession')
-let editProfileForm = document.forms.popupProfileForm
-let popupNewCardForm = document.forms.popupCardForm
+const editProfileForm = document.forms.popupProfileForm
+const popupNewCardForm = document.forms.popupCardForm
 const profile = document.querySelector('.profile')
-let personName = profile.querySelector('.profile__name')
-let job = profile.querySelector('.profile__profession')
+const personName = profile.querySelector('.profile__name')
+const job = profile.querySelector('.profile__profession')
 const popupEditUser = profile.querySelector('.profile__edit-button')
 const cardsTable = document.querySelector(".elements__list")
 const cardsTemplate = document.querySelector(".cards__template")
@@ -59,7 +59,7 @@ function formSubmitHandler(evt) { //сохранить изменения
     evt.preventDefault()
     personName.textContent = inputName.value
     job.textContent = inputProfession.value
-    togglePopup(popupPlaceProfile)
+    closePopup(popupPlaceProfile)
 }
 
 function openPopup(popup) {
