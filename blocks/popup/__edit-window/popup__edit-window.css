@@ -13,7 +13,6 @@
     grid-area: window;
 }
 
-
 @media screen and (max-width: 881px) {
     .popup__edit-window {
         width: 282px;
