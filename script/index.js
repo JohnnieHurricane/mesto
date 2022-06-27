@@ -18,6 +18,11 @@ const popupEditUser = profile.querySelector('.profile__edit-button')
 const cardsTable = document.querySelector(".elements__list")
 const cardsTemplate = document.querySelector(".cards__template")
 const popupPlaceView = document.querySelector('.popup_place_view')
+const editProfileSubmitBnt = document.querySelector('.popup__save')
+const profileInputList = Array.from(popupPlaceProfile.querySelectorAll('.popup__input'))
+const cardInputList = Array.from(popupPlaceNewCard.querySelectorAll('.popup__input'))
+const profileSubmitButton = popupPlaceProfile.querySelector('.popup__save')
+const cardSubmitButton = popupPlaceNewCard.querySelector('.popup__save')
 
 function renderCards() {
     const getElement = initialCards.map(renderCard)
@@ -55,13 +60,6 @@ function renderCard(item) {
     return elementFromTempale
 }
 
-function formSubmitHandler(evt) { //сохранить изменения
-    evt.preventDefault()
-    personName.textContent = inputName.value
-    job.textContent = inputProfession.value
-    closePopup(popupPlaceProfile)
-}
-
 function openPopup(popup) {
     popup.classList.add('popup_opened')
 }
@@ -88,10 +86,80 @@ function cardSubmitHandler(evt) {
 
 renderCards()
 
-editProfileForm.addEventListener('submit', formSubmitHandler)
+const validateProfileHandler = () => {
+    let isFormValid = true  
+    profileSubmitButton.disabled = true
+    profileInputList.forEach(inputElement => {        
+    const errorElement = document.querySelector(`.${inputElement.name}-error`)
+
+    if (!validateInput(inputElement)) {
+        activateError(errorElement, inputElement.validationMessage)
+        isFormValid = false
+    } else {
+        resetError(errorElement)
+    }
+
+    if (isFormValid) {
+        profileSubmitButton.disabled = false 
+    }
+})    
+}
+
+const validateCardHandler = () => {    
+    cardSubmitButton.disabled = true
+    let isFormValid = true  
+    cardInputList.forEach(inputElement => {        
+    const errorElement = document.querySelector(`.${inputElement.name}-error`)
+
+    if (!validateInput(inputElement)) {
+        activateError(errorElement, inputElement.validationMessage)
+        isFormValid = false
+    } else {
+        resetError(errorElement)
+    }
+
+    if (isFormValid) {
+        cardSubmitButton.disabled = false 
+    }
+})    
+}
+
+
+
+editProfileForm.addEventListener('submit', evt => { //сохранить изменения
+    evt.preventDefault()
+
+    personName.textContent = inputName.value
+    job.textContent = inputProfession.value
+    closePopup(popupPlaceProfile)
+    
+})
 popupEditUser.addEventListener('click', openPopupInfo)
 popupCloseInfo.addEventListener('click', function() {closePopup(popupPlaceProfile)})
 addCardButton.addEventListener('click', function() {openPopup(popupPlaceNewCard)})
 popupClosePlaceNewCard.addEventListener('click', function() {closePopup(popupPlaceNewCard)})
 popupNewCardForm.addEventListener('submit', cardSubmitHandler)
 popupCloseView.addEventListener('click', function() {closePopup(popupPlaceView)})
+
+const validateInput = inputElement => {
+    return inputElement.checkValidity();
+}
+
+
+const activateError = (errorElement, message) => {
+    errorElement.classList.add('popup__input-error_active')
+    errorElement.textContent = message
+}
+
+const resetError = errorElement => {
+    errorElement.classList.remove('popup__input-error_active')
+    errorElement.textContent = ''
+}
+
+profileInputList.forEach(inputElement => {        
+    inputElement.addEventListener('input', validateProfileHandler)
+})
+
+cardInputList.forEach(inputElement => {        
+    inputElement.addEventListener('input', validateCardHandler)
+})
