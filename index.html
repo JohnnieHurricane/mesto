@@ -50,13 +50,13 @@
             <button class="popup__close popup__close_place_info" type="button"></button>
             <div class="popup__edit-window">
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form class="popup__profile-form" name="popupProfileForm" novalidate>
+                <form class="popup__profile-form popup__form" name="popupProfileForm" novalidate>
                     <div class="popup__input-wrapper">
-                        <input type="text" name="popupName" required minlenght="2" maxlength="40"  class="popup__input popup__name" placeholder="Введите имя" />
+                        <input type="text" name="popupName" minlength="2" maxlength="40" required  class="popup__input popup__name" placeholder="Введите имя" />
                     <span class="popup__input-error popupName-error"></span>
                 </div>
                 <div class="popup__input-wrapper">
-                    <input type="text" name="popupProf" required minlenght="2" maxlength="200" class="popup__input popup__profession"
+                    <input type="text" name="popupProf" minlength="2" maxlength="200" required class="popup__input popup__profession"
                         placeholder="Введите Вашу профессию" />
                     <span class="popup__input-error popupProf-error"></span>
                 </div>
@@ -70,9 +70,9 @@
             <button class="popup__close popup__close_place_new-card" type="button"></button>
             <div class="popup__edit-window">
                 <h2 class="popup__title">Новое место</h2>
-                <form class="popup__profile-form" name="popupCardForm" novalidate>
+                <form class="popup__profile-form popup__form" name="popupCardForm" novalidate>
                     <div class="popup__input-wrapper">
-                    <input type="text" name="popupNewTitle" required minlength="2" maxlength="30" class="popup__input popup__new-title"
+                    <input type="text" name="popupNewTitle" minlength="2" maxlength="30" required class="popup__input popup__new-title"
                         placeholder="Название" />
                     <span class="popup__input-error popupNewTitle-error"></span>
                 </div>
