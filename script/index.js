@@ -89,135 +89,32 @@ renderCards()
 
 editProfileForm.addEventListener('submit', (evt) => {
     evt.preventDefault()
-    setEventListeners(editProfileForm)
     formSubmitHandler()
-}
-)
-
+})
 popupEditUser.addEventListener('click', openPopupInfo)
 popupCloseInfo.addEventListener('click', function() {closePopup(popupPlaceProfile)})
 addCardButton.addEventListener('click', function() {openPopup(popupPlaceNewCard)})
 popupClosePlaceNewCard.addEventListener('click', function() {closePopup(popupPlaceNewCard)})
 popupNewCardForm.addEventListener('submit', (evt) => {
     evt.preventDefault()
-    setEventListeners(popupNewCardForm)
     cardSubmitHandler()
 })
 popupCloseView.addEventListener('click', function() {closePopup(popupPlaceView)})
 
-const showInputError = (formElement, inputElement, errorMessage) => {
-    const errorElement = formElement.querySelector(`.${inputElement.name}-error`);
-    errorElement.textContent = errorMessage;
-    errorElement.classList.add('popup__input-error_active');
-  };
-  
-  const hideInputError = (formElement, inputElement) => {
-    const errorElement = formElement.querySelector(`.${inputElement.name}-error`);
-    errorElement.classList.remove('popup__input-error_active');
-    errorElement.textContent = '';
-  };
-  
-  const checkInputValidity = (formElement, inputElement) => {
-    if (!inputElement.validity.valid) {
-      showInputError(formElement, inputElement, inputElement.validationMessage);
-    } else {
-      hideInputError(formElement, inputElement);
-    }
-  };
-  
-  const setEventListeners = (formElement) => {
-    const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
-    const buttonElement = formElement.querySelector('.popup__save');
-    toggleButtonState(inputList, buttonElement);
-    inputList.forEach((inputElement) => {
-      inputElement.addEventListener('input', function () {
-        checkInputValidity(formElement, inputElement);
-        toggleButtonState(inputList, buttonElement);
-      });
-    });
-  }; 
-  
-  const hasInvalidInput = (inputList) => {
-    return inputList.some((inputElement) => {
-    return !inputElement.validity.valid;
-  }); 
-  }
-  
-  const toggleButtonState = (inputList, buttonElement) => {
-    if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add('popup__save_disabled');
-    buttonElement.disabled = true
-  } else {
-    buttonElement.classList.remove('popup__save_disabled');
-    buttonElement.disabled = false
-  } }
-  
-  const enableValidation = () => {
-    const formList = Array.from(document.querySelectorAll('.form'));
-    formList.forEach((formElement) => {
-     formElement.addEventListener('submit', (evt) => {
-       evt.preventDefault();
-     });      
-   })
-  };
-  
-  enableValidation();
-  setEventListeners(editProfileForm)
-  setEventListeners(popupNewCardForm)
-  
+function closeByEscape (evt) {
+    if(evt.key === "Escape") {
+    const openedPopup = document.querySelector('.popup_opened')
+    closePopup(openedPopup)
+}    
+}
+
+function closeOverlayClick (evt) {
+    const openedPopup = document.querySelector('.popup_opened')
+    if(openedPopup == evt.target) {    
+    closePopup(openedPopup)
+}    
+}
 
 
-
-
-
-
-
-
-
-
-
-
-// const getInputList = formEl => {
-//     const thisInputList = Array.from(formEl.querySelectorAll('.popup__input'))
-// return thisInputList 
-// }
-
-
-// const submitButton = formEl => {
-//     eachSubmitBtn = formEl.querySelector('.popup__save')
-//     return eachSubmitBtn
-// }
-
-
-// const isInputValid = inputEl => {
-//     return inputEl.checkValidity()
-// }
-
-// const activateError = (formEl, errorEl, message) => {
-//     errorEl.classList.add('popup__input-error_active')
-//     errorEl.textContent = message 
-//     submitButton(formEl).disabled = true
-//     submitButton(formEl).classList.add('popup__save_disabled')
-// }
-
-// const resetError = errorEl => {
-//     errorEl.classList.remove('popup__input-error_active')
-//     errorEl.textContent = ''
-// }
-
-
-
-// const validateInput = formEl => {
-//     getInputList(formEl).forEach(inputEl => {        
-//         const errorEl = formEl.querySelector(`.${inputEl.name}-error`)
-//         inputEl.addEventListener('input', () => {
-//         if (!isInputValid(inputEl)) {
-//             activateError(formEl, errorEl, inputEl.validationMessage)
-//         } else {
-//             resetError(errorEl)
-//         } 
-//     })        
-// })}
-
-// validateInput(editProfileForm)
-// validateInput(popupNewCardForm)
+document.addEventListener('keydown', evt => {closeByEscape(evt)})
+document.addEventListener('click', evt => {closeOverlayClick(evt)})
