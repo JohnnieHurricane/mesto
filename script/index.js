@@ -86,6 +86,12 @@ function handleCardSubmitButton(formEl) {
     setSubmitButtonInactive(formEl)
 }
 
+function setSubmitButtonInactive (formEl) {
+    const formSubmitButton = formEl.querySelector('.popup__save')
+    formSubmitButton.disabled = true
+    formSubmitButton.classList.add('popup__save_disabled')
+}
+
 function handleProfileSubmitButton() {
     personName.textContent = inputName.value;
     job.textContent = inputProfession.value;
