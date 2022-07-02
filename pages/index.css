@@ -15,6 +15,7 @@
 @import '../blocks/popup/__close/_place/popup_close_place_view.css';
 @import '../blocks/popup/__title/popup__title.css';
 @import '../blocks/popup/__input/popup__input.css';
+@import '../blocks/popup/__input/popup__input_type_invalid.css';
 @import '../blocks/popup/__save/popup__save.css';
 @import '../blocks/popup/__save/popup__save_disabled.css';
 @import '../blocks/popup/__review/popup__review.css';

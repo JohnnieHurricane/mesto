@@ -13,7 +13,6 @@ const cardsTemplate = document.querySelector(".cards__template");
 //Кнопки
 const addCardButton = document.querySelector(".profile__add-post");
 const popupEditUser = profile.querySelector(".profile__edit-button");
-const SubmitBnt = document.querySelector(".popup__save");
 //Инпуты
 const popupPlaceNewCardTitle = document.querySelector(".popup__new-title");
 const popupPlaceNewCardLink = document.querySelector(".popup__new-link");
@@ -62,23 +61,14 @@ function closeByEscape(evt) {
     }
 }
 
-function closeOverlayClick(evt) {
-    const openedPopup = document.querySelector(".popup_opened");
-    if (openedPopup == evt.target) {
-        closePopup(openedPopup);        
-    }
-}
-
 function openPopup(popup) {
     popup.classList.add("popup_opened");
     document.addEventListener("keydown", closeByEscape);
-    popup.addEventListener("keydown", closeOverlayClick);
 }
 
 function closePopup(popup) {
     popup.classList.remove("popup_opened");
     document.removeEventListener("keydown", closeByEscape);
-    popup.removeEventListener("keydown", closeOverlayClick);
 }
 
 function openPopupInfo() {
@@ -88,13 +78,12 @@ function openPopupInfo() {
     openPopup(popupPlaceProfile);
 }
 
-function handleCardSubmitButton(formEl, popup) {
+function handleCardSubmitButton(formEl) {
     const newTemplateCard = renderCard({ name: popupPlaceNewCardTitle.value, link: popupPlaceNewCardLink.value });
     cardsTable.prepend(newTemplateCard);
     closePopup(popupPlaceNewCard);
     formEl.reset()
-    popup.querySelector('.popup__save').disabled = true
-    popup.querySelector('.popup__save').classList.add('popup__save_disabled')
+    setSubmitButtonInactive(formEl)
 }
 
 function handleProfileSubmitButton() {
