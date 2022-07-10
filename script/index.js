@@ -121,6 +121,6 @@ addCardButton.addEventListener("click", function () {
 });
 popupNewCardForm.addEventListener("submit", (evt) => {
     evt.preventDefault();
-    handleCardSubmitButton(popupNewCardForm, popupPlaceNewCard);
+    handleCardSubmitButton(popupNewCardForm);
 });
 
