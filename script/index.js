@@ -1,6 +1,6 @@
-import {initialCards} from './initialCards.js';
-import {Card} from './Card.js';
-import {FormValidator} from './FormValidator.js';
+import { initialCards } from './initialCards.js';
+import { Card } from './Card.js';
+import { FormValidator } from './FormValidator.js';
 //Попапы
 const popupPlaceProfile = document.querySelector(".popup_place_profile");
 const viewPopup = document.querySelector(".popup_place_view");
@@ -43,8 +43,6 @@ const config = {
 };
 
 const validation = new FormValidator(config);
-console.log( 
-    validation._checkInputValidity)
 
 function renderCards() {
     initialCards.forEach((item) => {
@@ -53,7 +51,7 @@ function renderCards() {
     })
 }
 
-function renderCard (item) {
+function renderCard(item) {
     const card = new Card(item, cardsTemplate, config)
     const cardElement = card.generateCard()
     return cardElement
@@ -103,7 +101,7 @@ function handleProfileSubmitButton() {
     closePopup(popupPlaceProfile);
 }
 
-renderCards(); 
+renderCards();
 validation.enableValidation();
 
 
@@ -136,4 +134,4 @@ popupNewCardForm.addEventListener("submit", (evt) => {
     handleCardSubmitButton(popupNewCardForm);
 });
 
-export { viewPopup, viewCardImage, viewCardTitle, config }
+export { viewPopup, viewCardImage, viewCardTitle, config, openPopup }

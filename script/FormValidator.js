@@ -21,7 +21,7 @@ class FormValidator {
         const buttonElement = formElement.querySelector(this._submitButtonSelector);
         this._toggleButtonState(inputList, buttonElement, config);
         inputList.forEach((inputElement) => {
-            inputElement.addEventListener("input", function () {
+            inputElement.addEventListener("input", () => {
                 this._checkInputValidity(inputElement, formElement);
                 this._toggleButtonState(inputList, buttonElement, config);
             });
@@ -66,6 +66,6 @@ class FormValidator {
         errorElement.textContent = "";
     };
 }
-export {FormValidator};
+export { FormValidator };
 
 
