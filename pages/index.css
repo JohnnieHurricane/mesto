@@ -31,8 +31,9 @@
 @import '../blocks/profile/__profession/profile__profession.css';
 @import '../blocks/profile/__edit-button/profile__edit-button.css';
 @import '../blocks/profile/__add-post/profile__add-post.css';
+@import '../blocks/cards/cards.css';
+@import '../blocks/cards/__list/cards__list.css';
 @import '../blocks/elements/elements.css';
-@import '../blocks/elements/__list/elements__list.css';
 @import '../blocks/elements/__item/elements__item.css';
 @import '../blocks/elements/__photo/elements__photo.css';
 @import '../blocks/elements/__delete-btn/elements__delete-btn.css';

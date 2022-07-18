@@ -8,3 +8,21 @@
     box-sizing: border-box;
     background-color: #fff;
 }
+
+@media screen and (max-width: 881px) {
+    .popup__save_disabled {
+        width: 238px;
+        height: 46px;
+        font-size: 14px;
+        line-height: 17px;
+        margin: 45px auto 25px;
+    }
+}
+
+.popup__save_disabled:hover {
+    opacity: .8;
+    -webkit-transition: .3s ease;
+    -o-transition: .3s ease;
+    transition: .3s ease;
+    cursor: pointer;
+}
