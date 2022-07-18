@@ -14,9 +14,10 @@ class Card {
     this._like.classList.toggle(this._config.cardLikeActiveClass);
   };
 
-  _removeCard(cardElement) {
-    cardElement.remove()
-  };
+  _removeCard() { 
+    this._element.remove();
+    this._element = null;
+}
 
   _getTemplate() {
     const cardElement = this._template
@@ -30,10 +31,10 @@ class Card {
     return cardElement;
   }
 
-  _setEventListeners(cardElement) {
+  _setEventListeners() {
     this._like.addEventListener('click', () => { this._likeCard() });
     this._cardPhoto.addEventListener('click', () => { this._handelViewCard() });
-    this._deleteCardButton.addEventListener('click', () => { this._removeCard(cardElement) });
+    this._deleteCardButton.addEventListener('click', () => { this._removeCard() });
   }
 
   generateCard() {
@@ -52,14 +53,7 @@ class Card {
     viewCardImage.src = this._cardImage;
     viewCardTitle.textContent = this._cardTitle;
     openPopup(viewPopup)
-  };
-
-  _handelCloseViewCard() {
-    viewCardImage.alt = '';
-    viewCardImage.src = '';
-    viewCardTitle.textContent = '';
-    closePopup(viewPopup)
-  }
+  };  
 };
 
 export { Card };
