@@ -43,6 +43,8 @@ const config = {
 };
 
 const validation = new FormValidator(config);
+console.log( 
+    validation._checkInputValidity)
 
 function renderCards() {
     initialCards.forEach((item) => {
@@ -101,7 +103,8 @@ function handleProfileSubmitButton() {
     closePopup(popupPlaceProfile);
 }
 
-renderCards();
+renderCards(); 
+validation.enableValidation();
 
 
 popups.forEach((popup) => {
@@ -120,13 +123,11 @@ editProfileForm.addEventListener("submit", (evt) => {
     handleProfileSubmitButton();
 });
 
-popupEditUser.addEventListener("click", () => {    
-    validation.enableValidation();
+popupEditUser.addEventListener("click", () => {
     openPopupInfo();
 });
 
 addCardButton.addEventListener("click", function () {
-    validation.enableValidation();
     openPopup(popupPlaceNewCard);
 });
 
