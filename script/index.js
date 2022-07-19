@@ -1,6 +1,6 @@
 import { initialCards } from './initialCards.js';
 import { viewPopup, viewCardImage, viewCardTitle, openPopup, config, closePopup } from './util.js';
-import { Card } from './Card.js';
+import { Card } from './card.js';
 import { FormValidator } from './FormValidator.js';
 //Попапы
 const popupPlaceProfile = document.querySelector(".popup_place_profile");
