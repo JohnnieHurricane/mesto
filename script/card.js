@@ -1,4 +1,4 @@
-import { viewPopup, viewCardImage, viewCardTitle, openPopup } from './index.js'
+import { viewPopup, viewCardImage, viewCardTitle, openPopup } from './util.js'
 
 class Card {
   constructor(item, template, settings) {
@@ -14,10 +14,10 @@ class Card {
     this._like.classList.toggle(this._config.cardLikeActiveClass);
   };
 
-  _removeCard() { 
+  _removeCard() {
     this._element.remove();
     this._element = null;
-}
+  }
 
   _getTemplate() {
     const cardElement = this._template
@@ -39,10 +39,11 @@ class Card {
 
   generateCard() {
     this._element = this._getTemplate();
+    this._elementImage = this._element.querySelector(".elements__photo");
     this._setEventListeners(this._element);
 
-    this._element.querySelector(".elements__photo").src = this._cardImage;
-    this._element.querySelector(".elements__photo").alt = this._cardTitle;
+    this._elementImage.src = this._cardImage;
+    this._elementImage.alt = this._cardTitle;
     this._element.querySelector(".elements__title").textContent = this._cardTitle;
 
     return this._element;
@@ -53,7 +54,7 @@ class Card {
     viewCardImage.src = this._cardImage;
     viewCardTitle.textContent = this._cardTitle;
     openPopup(viewPopup)
-  };  
+  };
 };
 
 export { Card };
