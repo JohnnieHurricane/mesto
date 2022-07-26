@@ -1,0 +1,27 @@
+{
+  "name": "yandex.praktikum",
+  "version": "1.0.0",
+  "description": "Lerning platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo/\"Error: no test spcified\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "mesto"
+  },
+  "keywords": [
+    "learning",
+    "project",
+    "Mesto",
+    "Russia"
+  ],
+  "author": "Evgeniy Sayapin",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.6.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.74.0"
+  }
+}
