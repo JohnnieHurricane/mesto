@@ -9,9 +9,9 @@ _renderer(item) {
     this._container.append(item)
 }
 
-renderElements() {
-this._items.forEach(element) {
+addItem() {
+this._items.forEach(element => {
     this._renderer(element)
-}
+})
 }
 }
