@@ -3,31 +3,34 @@ import { initialCards } from './script/initialCards.js';
 import { viewPopup, viewCardImage, viewCardTitle, openPopup, config, closePopup } from './script/util.js';
 import { Card } from './script/card.js';
 import { FormValidator } from './script/FormValidator.js';
-//Попапы
-const popupPlaceProfile = document.querySelector(".popup_place_profile");
-const popupPlaceNewCard = document.querySelector(".popup_place_new-card");
-const popups = document.querySelectorAll('.popup')
-//Формы
-const editProfileForm = document.forms.popupProfileForm;
-const popupNewCardForm = document.forms.popupCardForm;
-//Контейнеры
-const profile = document.querySelector(".profile");
-const cardsTemplate = document.querySelector(".cards__template");
-const cardsList = document.querySelector('.cards__list')
-//Кнопки
-const addCardButton = document.querySelector(".profile__add-post");
-const popupEditUser = profile.querySelector(".profile__edit-button");
-//Инпуты
-const popupPlaceNewCardTitle = document.querySelector(".popup__new-title");
-const popupPlaceNewCardLink = document.querySelector(".popup__new-link");
-const inputName = popupPlaceProfile.querySelector(".popup__name");
-const inputProfession = popupPlaceProfile.querySelector(".popup__profession");
-//Тайтлы
-const personName = profile.querySelector(".profile__name");
-const job = profile.querySelector(".profile__profession");
+import {
+    popupPlaceProfile,
+    popupPlaceNewCard,
+    popups,
+    popupPlaceView,
+    editProfileForm,
+    popupNewCardForm,
+    cardsTemplate,
+    cardsList,
+    addCardButton,
+    popupEditUser,
+    popupPlaceNewCardTitle,
+    popupPlaceNewCardLink,
+    inputName,
+    inputProfession,
+    personName,
+    job
+} from './script/constants.js'
+import Popup from './script/Popup';
+import Section from './script/Section';
+import PopupWithImage from './script/PopupWithImage';
+import PopupWithForm from './script/popupWithForm';
 
 const profileFormValidation = new FormValidator(config, editProfileForm);
 const addCardFormValidation = new FormValidator(config, popupNewCardForm);
+const editProfilePopup = new PopupWithForm(popupPlaceProfile, handleProfileSubmitButton)
+const addCardPopup = new PopupWithForm(popupPlaceNewCard, handleCardSubmitButton)
+const viewCardPopup = new PopupWithImage(popupPlaceView)
 
 function renderCards() {
     initialCards.forEach((item) => {
