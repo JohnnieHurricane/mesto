@@ -1,13 +1,13 @@
-import { viewPopup, viewCardImage, viewCardTitle, openPopup } from './util.js'
-
 class Card {
-  constructor(item, template, settings) {
+  constructor(item, template, settings, handleCardClick) {
     this._config = settings,
+    this._item = item,
       this._template = template,
-      this._cardTitle = item.name,
-      this._cardImage = item.link,
+      this._cardTitle = this._item.name,
+      this._cardImage = this._item.link,
       this._cardAlt = this._cardTitle,
-      this._cardItemSelector = this._config.cardItemSelector
+      this._cardItemSelector = this._config.cardItemSelector,
+      this._handleCardClick = handleCardClick
   };
 
   _likeCard() {
@@ -48,13 +48,6 @@ class Card {
 
     return this._element;
   }
-
-  _handelViewCard() {
-    viewCardImage.alt = this._cardTitle;
-    viewCardImage.src = this._cardImage;
-    viewCardTitle.textContent = this._cardTitle;
-    openPopup(viewPopup)
   };
-};
 
 export { Card };

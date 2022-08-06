@@ -20,5 +20,7 @@ const inputProfession = popupPlaceProfile.querySelector(".popup__profession");
 //Тайтлы
 const personName = profile.querySelector(".profile__name");
 const job = profile.querySelector(".profile__profession");
+const viewCardImage = popupPlaceView.querySelector(".popup__card-image");
+const viewCardTitle = popupPlaceView.querySelector(".popup__card-title");
 
-export {popupPlaceProfile, popupPlaceView, popupPlaceNewCard, popups, editProfileForm, popupNewCardForm, cardsTemplate, cardsList, addCardButton, popupEditUser, popupPlaceNewCardTitle, popupPlaceNewCardLink, inputName, inputProfession, personName, job}
+export {popupPlaceProfile, viewCardImage,  viewCardTitle, popupPlaceView, popupPlaceNewCard, popups, editProfileForm, popupNewCardForm, cardsTemplate, cardsList, addCardButton, popupEditUser, popupPlaceNewCardTitle, popupPlaceNewCardLink, inputName, inputProfession, personName, job}
