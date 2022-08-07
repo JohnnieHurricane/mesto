@@ -1,7 +1,7 @@
 .popup__close {
     width: 32px;
     height: 32px;
-    background: url(https://johnniehurricane.github.io/mesto/images/Close_Icon.png) no-repeat;
+    background: url('../../../images/Close_Icon.png') no-repeat;
     background-size: contain;
     border: none;
     grid-area: close;
