@@ -30,49 +30,51 @@ const userInfoData = new UserInfo({ nameSelector: config.nameSelector, jobSelect
 
 function handleCardClick(name, link) {
   viewCardPopup.open(name, link);
-  viewCardPopup.setEventListeners()
 }
 
-function handleSubmitEditUserCallback(evt) {
-  evt.preventDefault()
-  const newUserInfoData = {}
-  newUserInfoData.name = inputName.value
-  newUserInfoData.job = inputProfession.value
-  console.log(newUserInfoData)
-  userInfoData.setUserInfo(newUserInfoData)
-  editProfilePopup.close()
+function handleSubmitEditUserCallback(obj) {
+  userInfoData.setUserInfo(obj)
+  profileFormValidation.resetValidation()
 }
 
-function handleSubmitNewCardCallback(evt) {
-evt.preventDefault()
+function handleSubmitNewCardCallback(obj) {
 const newCard = {}
-newCard.name = popupPlaceNewCardTitle.value
-newCard.link = popupPlaceNewCardLink.value
+console.log(obj)
+newCard.name = obj.popupNewTitle
+newCard.link = obj.popupNewLink
 cardRenderer(newCard)
-addCardPopup.close()
+addCardFormValidation.resetValidation()
 }
 
-function cardRenderer(cardItem) {
-  const card = new Card(cardItem, cardsTemplate, config, handleCardClick)
-  const cardElement = card.generateCard()
-  cardList.setItem(cardElement)
+function cardRenderer(cardItem) {  
+  cardList.setItem(createCard(cardItem))
 }
+
+function createCard(cardItem) {
+  const card = new Card(cardItem, cardsTemplate, config, handleCardClick)
+ const cardElement = card.generateCard()
+ return cardElement
+}
+
 
 popupEditUser.addEventListener('click', () => {
   const editUser = userInfoData.getUserInfo()
   editProfilePopup.open()
   inputName.value = editUser.name
   inputProfession.value = editUser.job
-  editProfilePopup.setEventListeners()
+  profileFormValidation.resetValidation()
 })
 
 addCardButton.addEventListener('click', () => {
   addCardPopup.open()
-  addCardPopup.setEventListeners()
+  addCardFormValidation.resetValidation()
 })
 
 cardList.renderItems();
 profileFormValidation.enableValidation();
 addCardFormValidation.enableValidation();
+viewCardPopup.setEventListeners();
+addCardPopup.setEventListeners();
+editProfilePopup.setEventListeners();
 
 

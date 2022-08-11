@@ -12,7 +12,7 @@ export default class UserInfo {
     }
 
     setUserInfo(userObj) {
-        this._name.textContent = userObj.name
-        this._job.textContent= userObj.job
+        this._name.textContent = userObj.popupName
+        this._job.textContent= userObj.popupProf
     }
 }
