@@ -16,7 +16,9 @@ const config = {
     cardItemSelector: '.elements__item',
     cardsTemplateSelector: '.cards__template',
     nameSelector: '.profile__name',
-    jobSelector: '.profile__profession'
+    jobSelector: '.profile__profession',
+    popupAvatarSelector: '.popup__place_edit-avatar',
+    avatarSelector: '.profile__image'
 };
 
 export { config }

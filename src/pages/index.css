@@ -22,6 +22,8 @@
 @import '../blocks/popup/__card-image/popup__card-image.css';
 @import '../blocks/popup/__card-title/popup__card-title.css';
 @import '../blocks/popup/_place_view/popup_place_view.css';
+@import '../blocks/popup/_place_edit-avatar/popup__place_edit-avatar.css';
+@import '../blocks/popup/_palce_delete-card/popup__place_delete-card.css';
 @import '../blocks/profile/profile.css';
 @import '../blocks/profile/__person/profile__person.css';
 @import '../blocks/profile/__avatar-edit/profile__avatar-edit.css';

@@ -5,6 +5,7 @@ const popups = document.querySelectorAll('.popup')
 //Формы
 const editProfileForm = document.forms.popupProfileForm;
 const popupNewCardForm = document.forms.popupCardForm;
+const popupAvatarForm = document.forms.avatar;
 //Контейнеры
 const profile = document.querySelector(".profile");
 const cardsTemplate = document.querySelector(".cards__template");
@@ -23,4 +24,4 @@ const job = profile.querySelector(".profile__profession");
 const viewCardImage = popupPlaceView.querySelector(".popup__card-image");
 const viewCardTitle = popupPlaceView.querySelector(".popup__card-title");
 
-export { popupPlaceProfile, viewCardImage, viewCardTitle, popupPlaceView, popupPlaceNewCard, popups, editProfileForm, popupNewCardForm, cardsTemplate, cardsList, addCardButton, popupEditUser, popupPlaceNewCardTitle, popupPlaceNewCardLink, inputName, inputProfession, personName, job }
+export { popupPlaceProfile, popupAvatarForm, viewCardImage, viewCardTitle, popupPlaceView, popupPlaceNewCard, popups, editProfileForm, popupNewCardForm, cardsTemplate, cardsList, addCardButton, popupEditUser, popupPlaceNewCardTitle, popupPlaceNewCardLink, inputName, inputProfession, personName, job }

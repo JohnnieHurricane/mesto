@@ -12,24 +12,46 @@ import {
   cardsList,
   inputName,
   inputProfession,
-  popupPlaceNewCardTitle,
-  popupPlaceNewCardLink
+  popupAvatarForm
 } from '../utils/constants.js'
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo';;
+import PopupCardDelete from '../components/PopupCardDelete';
+import Api from '../components/API.js';
+
 
 const profileFormValidation = new FormValidator(config, editProfileForm);
 const addCardFormValidation = new FormValidator(config, popupNewCardForm);
+const avatarFormValidator = new FormValidator(config, popupAvatarForm);
+
 const editProfilePopup = new PopupWithForm(config.popupEditUserSelector, handleSubmitEditUserCallback)
 const addCardPopup = new PopupWithForm(config.popupPlaceNewCardSelector, handleSubmitNewCardCallback)
+const editAvatar = new PopupWithForm(config.popupAvatarSelector, handleSubmitAvatarCallback)
+
 const viewCardPopup = new PopupWithImage(config.popupPlaceViewSelector)
-const cardList = new Section({data: initialCards, renderer: cardRenderer}, cardsList)
+
+const cardList = new Section({ data: initialCards, renderer: cardRenderer }, cardsList)
+
 const userInfoData = new UserInfo({ nameSelector: config.nameSelector, jobSelector: config.jobSelector })
+
+const api = new Api(({
+  url: "https://mesto.nomoreparties.co/v1/cohort-47",
+  headers: {
+    authorization: "0cd2188b-f25f-415c-a9b6-c2be13a1732d",
+    "Content-Type": "application/json",
+  },
+}))
+
+const deletePopup = new PopupCardDelete(PopupCardDelete, api)
 
 function handleCardClick(name, link) {
   viewCardPopup.open(name, link);
+}
+
+function handleSubmitAvatarCallback(obj) {
+  userInfoData.setUserInfo(obj)
 }
 
 function handleSubmitEditUserCallback(obj) {
@@ -38,22 +60,22 @@ function handleSubmitEditUserCallback(obj) {
 }
 
 function handleSubmitNewCardCallback(obj) {
-const newCard = {}
-console.log(obj)
-newCard.name = obj.popupNewTitle
-newCard.link = obj.popupNewLink
-cardRenderer(newCard)
-addCardFormValidation.resetValidation()
+  const newCard = {}
+  console.log(obj)
+  newCard.name = obj.popupNewTitle
+  newCard.link = obj.popupNewLink
+  cardRenderer(newCard)
+  addCardFormValidation.resetValidation()
 }
 
-function cardRenderer(cardItem) {  
+function cardRenderer(cardItem) {
   cardList.setItem(createCard(cardItem))
 }
 
 function createCard(cardItem) {
   const card = new Card(cardItem, cardsTemplate, config, handleCardClick)
- const cardElement = card.generateCard()
- return cardElement
+  const cardElement = card.generateCard()
+  return cardElement
 }
 
 
@@ -73,6 +95,7 @@ addCardButton.addEventListener('click', () => {
 cardList.renderItems();
 profileFormValidation.enableValidation();
 addCardFormValidation.enableValidation();
+avatarFormValidator.enableValidation();
 viewCardPopup.setEventListeners();
 addCardPopup.setEventListeners();
 editProfilePopup.setEventListeners();
