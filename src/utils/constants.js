@@ -12,7 +12,11 @@ const cardsTemplate = document.querySelector(".cards__template");
 const cardsList = document.querySelector('.cards__list')
 //Кнопки
 const addCardButton = document.querySelector(".profile__add-post");
-const popupEditUser = profile.querySelector(".profile__edit-button");
+const editUserButton = profile.querySelector(".profile__edit-button");
+const editAvatarButton = profile.querySelector(".profile__avatar-edit");
+const submitAvatarButton = document.querySelector('.popup__save_edit-avatar')
+const submitNewCardButton = document.querySelector('.popup__save_new-card')
+const submitUserInfoButton = document.querySelector('.popup__save_user-info')
 //Инпуты
 const popupPlaceNewCardTitle = document.querySelector(".popup__new-title");
 const popupPlaceNewCardLink = document.querySelector(".popup__new-link");
@@ -24,4 +28,4 @@ const job = profile.querySelector(".profile__profession");
 const viewCardImage = popupPlaceView.querySelector(".popup__card-image");
 const viewCardTitle = popupPlaceView.querySelector(".popup__card-title");
 
-export { popupPlaceProfile, popupAvatarForm, viewCardImage, viewCardTitle, popupPlaceView, popupPlaceNewCard, popups, editProfileForm, popupNewCardForm, cardsTemplate, cardsList, addCardButton, popupEditUser, popupPlaceNewCardTitle, popupPlaceNewCardLink, inputName, inputProfession, personName, job }
+export { popupPlaceProfile, submitAvatarButton, submitNewCardButton, submitUserInfoButton, popupAvatarForm, viewCardImage, viewCardTitle, popupPlaceView, popupPlaceNewCard, popups, editProfileForm, popupNewCardForm, cardsTemplate, cardsList, addCardButton, editUserButton, popupPlaceNewCardTitle, popupPlaceNewCardLink, inputName, inputProfession, personName, job, editAvatarButton }

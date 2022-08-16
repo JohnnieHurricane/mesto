@@ -1,5 +1,5 @@
 .popup__edit-window {
-    max-width: 430px;
+    width: 430px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

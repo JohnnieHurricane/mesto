@@ -69,7 +69,8 @@
                             class="popup__input popup__profession" placeholder="Введите Вашу профессию" />
                         <span class="popup__input-error popupProf-error"></span>
                     </div>
-                    <button class="popup__save" name="popupSubmit" type="submit">Сохранить</button>
+                    <button class="popup__save popup__save_user-info" name="popupSubmit"
+                        type="submit">Сохранить</button>
                 </form>
             </div>
         </div>
@@ -90,7 +91,7 @@
                             placeholder="Ссылка на картинку" />
                         <span class="popup__input-error popupNewLink-error"></span>
                     </div>
-                    <button class="popup__save" name="popupSubmit" type="submit">Создать</button>
+                    <button class="popup__save popup__save_new-card" name="popupSubmit" type="submit">Создать</button>
                 </form>
             </div>
         </div>
@@ -102,23 +103,30 @@
             <p class="popup__card-title"></p>
         </div>
     </div>
-    <div class="popup popup_place_edit-avatar">
+    <div class="popup popup__place_edit-avatar">
         <div class="popup__container">
             <button class="popup__close popup__close_place_edit-avatar" type="button"></button>
-            <form class="popup__form popup__avatar-form" name="avatar" novalidate>
-                <h3 class="popup__title">Обновить аватар</h3>
-                <input type="url" name="avatar" required class="popup__input popup__new-link"
-                    placeholder="Ссылка на картинку" />
-                <span id="avatar-error" class="popup__input-error popupNewLink-error"></span>
-                <button class="popup__save" name="popupSubmit" type="submit">Сохранить</button>
-            </form>
+            <div class="popup__edit-window">
+                <form class="popup__form popup__avatar-form" name="avatar" novalidate>
+                    <h3 class="popup__title">Обновить аватар</h3>
+                    <input type="url" name="avatar" required class="popup__input popup__new-link"
+                        placeholder="Ссылка на картинку" />
+                    <span id="avatar-error" class="popup__input-error popupNewLink-error"></span>
+                    <button class="popup__save popup__save_edit-avatar" name="popupSubmit"
+                        type="submit">Сохранить</button>
+                </form>
+            </div>
         </div>
     </div>
     <div class="popup popup_place_delete-card">
         <div class="popup__container">
             <button class="popup__close popup__close_place_delete-card" type="button"></button>
-            <h3 class="popup__title">Вы уверены?</h3>
-            <button class="popup__save" name="popupSubmit" type="button">Да</button>
+            <div class="popup__edit-window popup__edit-window_small">
+                <form class="popup__profile-form popup__form" name="popupuCardDeleteForm">
+                    <h3 class="popup__title">Вы уверены?</h3>
+                    <button class="popup__save popup__save_delete-card" name="popupSubmit" type="submit">Да</button>
+                </form>
+            </div>
         </div>
     </div>
 </body>
