@@ -32,7 +32,9 @@ const editAvatar = new PopupWithForm(config.popupAvatarSelector, handleSubmitAva
 
 const viewCardPopup = new PopupWithImage(config.popupPlaceViewSelector)
 
-const cardList = new Section({ data: initialCards, renderer: cardRenderer }, cardsList)
+const popupuCardDelete = new PopupCardDelete(config.popupPlaceDeleteCardSelector)
+
+const cardList = new Section({ data: [], renderer: cardRenderer }, cardsList)
 
 const userInfoData = new UserInfo({ nameSelector: config.nameSelector, jobSelector: config.jobSelector })
 
@@ -91,6 +93,8 @@ addCardButton.addEventListener('click', () => {
   addCardPopup.open()
   addCardFormValidation.resetValidation()
 })
+
+
 
 cardList.renderItems();
 profileFormValidation.enableValidation();

@@ -3,6 +3,7 @@ const config = {
     popupEditUserSelector: '.popup_place_profile',
     popupPlaceNewCardSelector: '.popup_place_new-card',
     popupPlaceViewSelector: '.popup_place_view',
+    popupPlaceDeleteCardSelector: '.popup_place_delete-card',
     inputSelector: ".popup__input",
     inputErrorClass: 'popup__input_type_invalid',
     submitButtonSelector: '.popup__save',
