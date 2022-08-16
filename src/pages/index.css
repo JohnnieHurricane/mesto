@@ -24,6 +24,9 @@
 @import '../blocks/popup/_place_view/popup_place_view.css';
 @import '../blocks/profile/profile.css';
 @import '../blocks/profile/__person/profile__person.css';
+@import '../blocks/profile/__avatar-edit/profile__avatar-edit.css';
+@import '../blocks/profile/__avatar-edit/_icon/profile__avatar-edit_icon.css';
+@import '../blocks/profile/__avatar-wrapper/profile__avatar-wrapper.css';
 @import '../blocks/profile/__info/profile__info.css';
 @import '../blocks/profile/__image/profile__image.css';
 @import '../blocks/profile/__edit/profile__edit.css';

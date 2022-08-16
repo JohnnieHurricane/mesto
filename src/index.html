@@ -15,7 +15,14 @@
     <main class="content">
         <section class="profile">
             <div class="profile__person">
-                <img src="<%=require('./images/photo_profile.jpg')%>" alt="фотография профиля" class="profile__image" />
+                <div class="profile__avatar-wrapper">
+                    <img src="<%=require('./images/photo_profile.jpg')%>" alt="фотография профиля"
+                        class="profile__image" />
+                    <button class="profile__avatar-edit" type="button">
+                        <img class="profile__avatar-edit_icon" src="<%=require('./images/Edit_button_without_border.png')%>"
+                            alt="edit icon" />
+                    </button>
+                </div>
                 <div class="profile__info">
                     <div class="profile__edit">
                         <h1 class="profile__name">Бендер Родригез</h1>
@@ -90,6 +97,26 @@
             <button class="popup__close popup__close_place_view" type="button"></button>
             <img src="#" alt="" class="popup__card-image" />
             <p class="popup__card-title"></p>
+        </div>
+    </div>
+    <div class="popup popup_place_edit-avatar">
+        <div class="popup__container">
+            <button class="popup__close popup__close_place_edit-avatar" type="button"></button>
+            <form class="popup__form popup__avatar-form" name="avatar" novalidate>
+                <h3 class="popup__title">Обновить аватар</h3>
+                <input type="url" name="avatar" required class="popup__input popup__new-link"
+                    placeholder="Ссылка на картинку" />
+                <span id="avatar-error" class="popup__input-error popupNewLink-error"></span>
+                <button class="popup__save" name="popupSubmit" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
+    <div class="popup popup_place_delete-card">
+        <div class="popup__container">
+            <button class="popup__close popup__close_place_delete-card" type="button"></button>
+            <h3 class="popup__title">Вы уверены?</h3>
+            <button class="popup__save" name="popupSubmit" type="submit">Да</button>
+            </form>
         </div>
     </div>
 </body>
