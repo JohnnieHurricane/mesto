@@ -1,7 +1,13 @@
 export default class Api {
-    constructor({ url, headers }) {
-        this._url = url;
-        this._headers = headers;
+    constructor({ host, token }) {
+        this._host = host;
+        this._token = token;
+    }
+
+    getCards() {
+        return fetch(`${this._host}/cards`, {
+             headers: this._token })
+            .then(this._checkResolve);
     }
 
     _checkResolve(res) {
@@ -12,9 +18,9 @@ export default class Api {
     }
 
     patchUserAvatarToServer(data) {
-        return fetch(`${this._url}/users/me/avatar`, {
+        return fetch(`${this._host}/users/me/avatar`, {
             method: "PATCH",
-            headers: this._headers,
+            headers: this._token,
             body: JSON.stringify({
                 avatar: data.avatar,
             }),
@@ -23,17 +29,17 @@ export default class Api {
     }
 
     getUserInfoFromServer() {
-        return fetch(`${this._url}/users/me`, {
-            headers: this._headers,
+        return fetch(`${this._host}/users/me`, {
+            headers: this._token,
             body: JSON.stringify(),
         })
             .then(this._checkResolve);
     }
 
     patchUserInfoToServer(data) {
-        return fetch(`${this._url}/users/me`, {
+        return fetch(`${this._host}/users/me`, {
             method: "PATCH",
-            headers: this._headers,
+            headers: this._token,
             body: JSON.stringify({
                 name: data.name,
                 about: data.about,
@@ -42,40 +48,35 @@ export default class Api {
             .then(this._checkResolve);
     }
 
-    getCards() {
-        return fetch(`${this._url}/cards`, { headers: this._headers })
-            .then(this._checkResolve);
-    }
-
     postCard(card) {
-        return fetch(`${this._url}/cards`, {
+        return fetch(`${this._host}/cards`, {
             method: "POST",
-            headers: this._headers,
+            headers: this._token,
             body: JSON.stringify(card),
         })
             .then(this._checkResolve);
     }
 
     deleteCard(id) {
-        return fetch(`${this._url}/cards/${id}`, {
+        return fetch(`${this._host}/cards/${id}`, {
             method: "DELETE",
-            headers: this._headers,
+            headers: this._token,
         })
             .then(this._checkResolve);
     }
 
     putLike(id) {
-        return fetch(`${this._url}/cards/${id}/likes`, {
+        return fetch(`${this._host}/cards/${id}/likes`, {
             method: "PUT",
-            headers: this._headers,
+            headers: this._token,
         })
             .then(this._checkResolve);
     }
 
     deleteLike(id) {
-        return fetch(`${this._url}/cards/${id}/likes`, {
+        return fetch(`${this._host}/cards/${id}/likes`, {
             method: "DELETE",
-            headers: this._headers,
+            headers: this._token,
         })
             .then(this._checkResolve);
     }    

@@ -1,5 +1,4 @@
 import './index.css';
-import { initialCards } from '../utils/initialCards.js';
 import { config } from '../utils/util.js';
 import Card from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
@@ -39,8 +38,8 @@ const cardList = new Section({ data: [], renderer: cardRenderer }, cardsList)
 const userInfoData = new UserInfo({ nameSelector: config.nameSelector, jobSelector: config.jobSelector })
 
 const api = new Api(({
-  url: "https://mesto.nomoreparties.co/v1/cohort-47",
-  headers: {
+  host: "https://mesto.nomoreparties.co/v1/cohort-47",
+  token: {
     authorization: "0cd2188b-f25f-415c-a9b6-c2be13a1732d",
     "Content-Type": "application/json",
   },
@@ -94,8 +93,10 @@ addCardButton.addEventListener('click', () => {
   addCardFormValidation.resetValidation()
 })
 
-
-
+api.getCards()
+.then((items) => {
+  
+})
 cardList.renderItems();
 profileFormValidation.enableValidation();
 addCardFormValidation.enableValidation();
