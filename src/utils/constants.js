@@ -1,6 +1,8 @@
 const popupPlaceProfile = document.querySelector(".popup_place_profile");
 const popupPlaceNewCard = document.querySelector(".popup_place_new-card");
 const popupPlaceView = document.querySelector(".popup_place_view");
+const popupPlaceDeleteCard = document.querySelector(".popup_place_delete-card");
+const popupPlaceAvatar = document.querySelector('.popup__place_edit-avatar');
 const popups = document.querySelectorAll('.popup')
 //Формы
 const editProfileForm = document.forms.popupProfileForm;
@@ -28,4 +30,4 @@ const job = profile.querySelector(".profile__profession");
 const viewCardImage = popupPlaceView.querySelector(".popup__card-image");
 const viewCardTitle = popupPlaceView.querySelector(".popup__card-title");
 
-export { popupPlaceProfile, submitAvatarButton, submitNewCardButton, submitUserInfoButton, popupAvatarForm, viewCardImage, viewCardTitle, popupPlaceView, popupPlaceNewCard, popups, editProfileForm, popupNewCardForm, cardsTemplate, cardsList, addCardButton, editUserButton, popupPlaceNewCardTitle, popupPlaceNewCardLink, inputName, inputProfession, personName, job, editAvatarButton }
+export { popupPlaceProfile, profile, popupPlaceDeleteCard, submitAvatarButton, submitNewCardButton, submitUserInfoButton, popupAvatarForm, viewCardImage, viewCardTitle, popupPlaceView, popupPlaceNewCard, popups, editProfileForm, popupNewCardForm, cardsTemplate, cardsList, popupPlaceAvatar, addCardButton, editUserButton, popupPlaceNewCardTitle, popupPlaceNewCardLink, inputName, inputProfession, personName, job, editAvatarButton }

@@ -3,19 +3,27 @@ import { config } from '../utils/util.js';
 import Card from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
 import {
+  popupPlaceDeleteCard,
+  popupPlaceAvatar,
+  popupPlaceProfile,
+  popupPlaceNewCard,
+  popupPlaceView,
+
   addCardButton,
   editUserButton,
-  editProfileForm,
   editAvatarButton,
+  submitAvatarButton,
+  submitNewCardButton,
+  submitUserInfoButton,
+
+  editProfileForm,
   popupNewCardForm,
+  popupAvatarForm,
+
   cardsTemplate,
   cardsList,
   inputName,
   inputProfession,
-  popupAvatarForm,
-  submitAvatarButton,
-  submitNewCardButton,
-  submitUserInfoButton
 } from '../utils/constants.js'
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
@@ -29,17 +37,17 @@ const profileFormValidation = new FormValidator(config, editProfileForm);
 const addCardFormValidation = new FormValidator(config, popupNewCardForm);
 const avatarFormValidation = new FormValidator(config, popupAvatarForm);
 
-const editProfilePopup = new PopupWithForm(config.popupEditUserSelector, handleSubmitEditUserCallback)
-const addCardPopup = new PopupWithForm(config.popupPlaceNewCardSelector, handleSubmitNewCardCallback)
-const editAvatar = new PopupWithForm(config.popupAvatarSelector, handleSubmitAvatarCallback)
+const editProfilePopup = new PopupWithForm(".popup_place_profile", handleSubmitEditUserCallback)
+const addCardPopup = new PopupWithForm(".popup_place_new-card", handleSubmitNewCardCallback)
+const editAvatar = new PopupWithForm('.popup__place_edit-avatar', handleSubmitAvatarCallback)
 
-const viewCardPopup = new PopupWithImage(config.popupPlaceViewSelector)
-const deletePopup = new PopupCardDelete(config.popupPlaceDeleteCardSelector, api)
+const viewCardPopup = new PopupWithImage(".popup_place_view")
+const deletePopup = new PopupCardDelete(".popup_place_delete-card", api)
 
 const cardList = new Section({ data: [], renderer: cardRenderer }, cardsList)
 
 let user
-const userInfoData = new UserInfo({ nameSelector: config.nameSelector, jobSelector: config.jobSelector, avatarSelector: config.avatarSelector })
+const userInfoData = new UserInfo({ nameSelector: '.profile__name', jobSelector: '.profile__profession', avatarSelector: '.profile__image' })
 
 const api = new Api(({
   host: "https://mesto.nomoreparties.co/v1/cohort-47",
@@ -51,6 +59,7 @@ const api = new Api(({
 
 Promise.all([api.getCards(), api.getUserInfoFromServer()])
   .then(([cardsData, userData]) => {
+    user = userData._id;
     cardList.renderItems(cardsData);
     user = userData._id;
     userInfoData.setUserInfo(userData);
@@ -62,11 +71,10 @@ function handleCardClick(name, link) {
   viewCardPopup.open(name, link);
 }
 
-function handleSubmitAvatarCallback(evt, data) {
-  evt.preventDefault();
+function handleSubmitAvatarCallback(data) {
   submitAvatarButton.textContent = "Сохранение...";
   api
-    .setUserInfoToServer(data)
+  .patchUserAvatarToServer(data)
     .then((data) => {
       userInfoData.setUserInfo(data);
       editAvatar.close();
@@ -75,11 +83,10 @@ function handleSubmitAvatarCallback(evt, data) {
     .finally(() => (submitAvatarButton.textContent = "Сохранить"));
 }
 
-function handleSubmitEditUserCallback(evt, data) {
-  evt.preventDefault();
+function handleSubmitEditUserCallback(data) {
   submitUserInfoButton.textContent = "Сохранение...";
   api
-    .setUserInfoToServer(data)
+    .patchUserInfoToServer(data)
     .then((data) => {
       userInfoData.setUserInfo(data);
       editProfilePopup.close();
@@ -88,10 +95,11 @@ function handleSubmitEditUserCallback(evt, data) {
     .finally(() => (submitUserInfoButton.textContent = "Сохранить"));
 }
 
-function handleSubmitNewCardCallback(evt, { name, link }) {
+function handleSubmitNewCardCallback({ popupNewTitle, popupNewLink }) {  
+  
   submitNewCardButton.textContent = "Сохранение...";
   api
-    .postCard({ name: name, link: link })
+    .postCard({ name: popupNewTitle, link: popupNewLink })
     .then((data) => {
       cardList.setItem(createCard(data, user));
       addCardPopup.close();
@@ -101,11 +109,23 @@ function handleSubmitNewCardCallback(evt, { name, link }) {
 }
 
 function cardRenderer(cardItem) {
-  cardList.setItem(createCard(cardItem))
+  cardList.setItem(createCard(cardItem, user))
 }
 
 function createCard(cardItem, user) {
-  const card = new Card(cardItem, config, { cardsTemplate, handleCardClick, handleDeleteCard }, api, user)
+  const card = new Card(cardItem, config, { cardsTemplate, handleCardClick, 
+    handleDeleteCard: (id, card) => {
+      deletePopup.open();
+      deletePopup.setSubmitCallback(() => {
+      api
+        .deleteCard(id)
+        .then(() => {
+          card.remove();
+          deletePopup.close();
+        })
+        .catch((err) => console.log(err));
+    })}, }, api, user)
+
   const cardElement = card.generateCard()
   return cardElement
 }

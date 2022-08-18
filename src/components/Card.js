@@ -1,51 +1,50 @@
 export default class Card {
-  constructor(card, config, { template, handleCardClick, handleDeleteCard }, api, user) {
+  constructor(card, config, { cardsTemplate, handleCardClick, handleDeleteCard }, api, user) {
     this._config = config,
-      this.card = card,
-      this._template = template,
-      this._cardTitle = this.card.name,
-      this._cardImage = this.card.link,
-      this._cardAlt = this._cardTitle,
-      this._cardOwner = this.card.owner._id,
-      this._cardId = this.card._id,
-      this._cardLikes = this.card._likes,
+      this._card = card,
+      this._template = cardsTemplate,
+      this._name = card.name,
+      this._link = card.link,
+      this._cardAlt = this._name,
+      this._cardOwner = card.owner._id,
+      this.id = card._id,      
+      this._likes = card.likes,
       this._api = api,
       this._user = user,
-      this._cardItemSelector = this._config.cardItemSelector,
+      this._cardItemSelector = '.elements__item',
       this._handleCardClick = handleCardClick,
       this._handleDeleteCard = handleDeleteCard
   };
 
-
   _handleLikeClick() {
     if (
-      this._cardLikes.some((item) => {
+      this._likes.some((item) => {
         return item._id === this._user;
       })
     ) {
       this._api
-        .deleteLike(this._cardId)
+        .deleteLike(this.id)
         .then((data) => {
           this._like.classList.remove(this._config.cardLikeActiveClass);
           this._likeCounter.textContent = data.likes.length;
-          this._cardLikes = data.likes;
+          this._likes = data.likes;
         })
         .catch((err) => console.log(err));
     } else {
       this._api
-        .putLike(this._cardId)
+        .putLike(this.id)
         .then((data) => {
           this._like.classList.add(this._config.cardLikeActiveClass);
           this._likeCounter.textContent = data.likes.length;
-          this._cardLikes = data.likes;
+          this._likes = data.likes;
         })
         .catch((err) => console.log(err));
     }
   }
 
-  _isLiked(card) {
-    this._likeCounter.textContent = this._cardLikes.length;
-    this._cardLikes.forEach((item) => {
+  _isLiked() {
+    this._likeCounter.textContent = this._likes.length;
+    this._likes.forEach((item) => {
       if (item._id == this._user) {
         this._like.classList.add(this._config.cardLikeActiveClass);
       } else {
@@ -68,7 +67,7 @@ export default class Card {
   };
 
   _checkOwner() {
-    const usersCard = this._owner == this._user
+    const usersCard = this._cardOwner == this._user
     if (!usersCard) {
       this._deleteCardButton.classList.add('elements__delete-btn_hide');
     }
@@ -77,19 +76,19 @@ export default class Card {
   generateCard() {
     this._element = this._getTemplate();
     this._like = this._element.querySelector(this._config.cardLikeSelector)
-    this.likeCounter = this._element.querySelector('.elements__like-count')
+    this._likeCounter = this._element.querySelector('.elements__like-count')
     this._cardPhoto = this._element.querySelector(this._config.cardImageSelector)
     this._elementImage = this._element.querySelector(this._config.cardImageSelector)
     this._deleteCardButton = this._element.querySelector(this._config.cardDeleteButtonSelector)
 
-    this._elementImage.src = this._cardImage;
-    this._elementImage.alt = this._cardTitle;
-    this._element.querySelector(".elements__title").textContent = this._cardTitle;
+    this._elementImage.src = this._link;
+    this._elementImage.alt = this._name;
+    this._element.querySelector(".elements__title").textContent = this._name;
 
     this._checkOwner() 
-    this._isLiked(this);
-    this._setEventListeners();
-    return this._element;
+    this._isLiked()
+    this._setEventListeners()
+    return this._element
   };
 
   _setEventListeners() {
@@ -97,10 +96,10 @@ export default class Card {
       this._handleLikeClick(this)
     });
     this._cardPhoto.addEventListener('click', () => {
-      this._handleCardClick(this._cardTitle, this._cardImage)
+      this._handleCardClick(this._name, this._link)
     });
     this._deleteCardButton.addEventListener('click', () => {
-      this._handleDeleteCard(this._cardId, this._element)
+      this._handleDeleteCard(this.id, this._element)
     });
   };
 

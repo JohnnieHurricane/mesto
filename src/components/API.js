@@ -6,7 +6,16 @@ export default class Api {
 
     getCards() {
         return fetch(`${this._host}/cards`, {
-             headers: this._token })
+            headers: this._token
+        })
+            .then(this._checkResolve);
+    }
+    
+    getUserInfoFromServer() {
+        return fetch(`${this._host}/users/me`, {
+            headers: this._token,
+            body: JSON.stringify(),
+        })
             .then(this._checkResolve);
     }
 
@@ -24,14 +33,6 @@ export default class Api {
             body: JSON.stringify({
                 avatar: data.avatar,
             }),
-        })
-            .then(this._checkResolve);
-    }
-
-    getUserInfoFromServer() {
-        return fetch(`${this._host}/users/me`, {
-            headers: this._token,
-            body: JSON.stringify(),
         })
             .then(this._checkResolve);
     }
@@ -54,7 +55,7 @@ export default class Api {
             headers: this._token,
             body: JSON.stringify(card),
         })
-            .then(this._checkResolve);
+            .then(this._checkResolve);            
     }
 
     deleteCard(id) {
@@ -79,5 +80,5 @@ export default class Api {
             headers: this._token,
         })
             .then(this._checkResolve);
-    }    
+    }
 }
