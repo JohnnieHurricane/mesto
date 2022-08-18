@@ -2,7 +2,7 @@ const popupPlaceProfile = document.querySelector(".popup_place_profile");
 const popupPlaceNewCard = document.querySelector(".popup_place_new-card");
 const popupPlaceView = document.querySelector(".popup_place_view");
 const popupPlaceDeleteCard = document.querySelector(".popup_place_delete-card");
-const popupPlaceAvatar = document.querySelector('.popup__place_edit-avatar');
+const popupPlaceAvatar = document.querySelector('.popup_place_edit-avatar');
 const popups = document.querySelectorAll('.popup')
 //Формы
 const editProfileForm = document.forms.popupProfileForm;

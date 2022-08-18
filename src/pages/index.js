@@ -39,7 +39,7 @@ const avatarFormValidation = new FormValidator(config, popupAvatarForm);
 
 const editProfilePopup = new PopupWithForm(".popup_place_profile", handleSubmitEditUserCallback)
 const addCardPopup = new PopupWithForm(".popup_place_new-card", handleSubmitNewCardCallback)
-const editAvatar = new PopupWithForm('.popup__place_edit-avatar', handleSubmitAvatarCallback)
+const editAvatar = new PopupWithForm('.popup_place_edit-avatar', handleSubmitAvatarCallback)
 
 const viewCardPopup = new PopupWithImage(".popup_place_view")
 const deletePopup = new PopupCardDelete(".popup_place_delete-card", api)
