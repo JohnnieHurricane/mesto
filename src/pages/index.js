@@ -3,12 +3,6 @@ import { config } from '../utils/util.js';
 import Card from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
 import {
-  popupPlaceDeleteCard,
-  popupPlaceAvatar,
-  popupPlaceProfile,
-  popupPlaceNewCard,
-  popupPlaceView,
-
   addCardButton,
   editUserButton,
   editAvatarButton,
@@ -61,7 +55,6 @@ Promise.all([api.getCards(), api.getUserInfoFromServer()])
   .then(([cardsData, userData]) => {
     user = userData._id;
     cardList.renderItems(cardsData);
-    user = userData._id;
     userInfoData.setUserInfo(userData);
   })
   .catch((err) => console.log(err));
@@ -74,7 +67,7 @@ function handleCardClick(name, link) {
 function handleSubmitAvatarCallback(data) {
   submitAvatarButton.textContent = "Сохранение...";
   api
-  .patchUserAvatarToServer(data)
+    .patchUserAvatarToServer(data)
     .then((data) => {
       userInfoData.setUserInfo(data);
       editAvatar.close();
@@ -95,8 +88,7 @@ function handleSubmitEditUserCallback(data) {
     .finally(() => (submitUserInfoButton.textContent = "Сохранить"));
 }
 
-function handleSubmitNewCardCallback({ popupNewTitle, popupNewLink }) {  
-  
+function handleSubmitNewCardCallback({ popupNewTitle, popupNewLink }) {
   submitNewCardButton.textContent = "Сохранение...";
   api
     .postCard({ name: popupNewTitle, link: popupNewLink })
@@ -105,7 +97,7 @@ function handleSubmitNewCardCallback({ popupNewTitle, popupNewLink }) {
       addCardPopup.close();
     })
     .catch((err) => console.log(err))
-    .finally(() => (submitNewCardButton.textContent = "Сохранить"));
+    .finally(() => (submitNewCardButton.textContent = "Создать"));
 }
 
 function cardRenderer(cardItem) {
@@ -113,21 +105,49 @@ function cardRenderer(cardItem) {
 }
 
 function createCard(cardItem, user) {
-  const card = new Card(cardItem, config, { cardsTemplate, handleCardClick, 
+  const card = new Card(cardItem, config, {
+    cardsTemplate, handleCardClick,
     handleDeleteCard: (id, card) => {
       deletePopup.open();
       deletePopup.setSubmitCallback(() => {
-      api
-        .deleteCard(id)
-        .then(() => {
-          card.remove();
-          deletePopup.close();
+        api
+          .deleteCard(id)
+          .then(() => {            
+            card.remove();
+            deletePopup.close();
+          })
+          .catch((err) => console.log(err));
+      })
+    },
+    
+    handleLikeClick: (element, user, id) => {      
+      if (
+        element.likes.some((item) => {
+          return item._id === user;
         })
-        .catch((err) => console.log(err));
-    })}, }, api, user)
+      ) {
+        api
+          .deleteLike(id)
+          .then((data) => {
+            card.likeDelete(data)
+          })
+          .catch((err) => console.log(err));
+      } else {
+        api
+          .putLike(id)
+          .then((data) => {
+            card.likeCard(data)
+          })
+          .catch((err) => console.log(err));
+      }
+    } }, user)
 
-  const cardElement = card.generateCard()
-  return cardElement
+  return card.generateCard()
+}
+
+function newCardSubmit() {
+  addCardPopup.open()
+  addCardFormValidation.resetValidation()
 }
 
 editUserButton.addEventListener('click', () => {
@@ -138,10 +158,7 @@ editUserButton.addEventListener('click', () => {
   profileFormValidation.resetValidation()
 })
 
-addCardButton.addEventListener('click', () => {
-  addCardPopup.open()
-  addCardFormValidation.resetValidation()
-})
+addCardButton.addEventListener('click', newCardSubmit)
 
 editAvatarButton.addEventListener('click', () => {
   editAvatar.open()
