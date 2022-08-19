@@ -53,9 +53,9 @@ const api = new Api(({
 
 Promise.all([api.getCards(), api.getUserInfoFromServer()])
   .then(([cardsData, userData]) => {
-    user = userData._id;
+    user = userData._id;    
     cardList.renderItems(cardsData);
-    userInfoData.setUserInfo(userData);
+    userInfoData.setUserInfo(userData);    
   })
   .catch((err) => console.log(err));
 
@@ -93,7 +93,7 @@ function handleSubmitNewCardCallback({ popupNewTitle, popupNewLink }) {
   api
     .postCard({ name: popupNewTitle, link: popupNewLink })
     .then((data) => {
-      cardList.setItem(createCard(data, user));
+      createCard(data, user)
       addCardPopup.close();
     })
     .catch((err) => console.log(err))
@@ -101,7 +101,7 @@ function handleSubmitNewCardCallback({ popupNewTitle, popupNewLink }) {
 }
 
 function cardRenderer(cardItem) {
-  cardList.setItem(createCard(cardItem, user))
+  createCard(cardItem, user)
 }
 
 function createCard(cardItem, user) {
@@ -117,33 +117,25 @@ function createCard(cardItem, user) {
             deletePopup.close();
           })
           .catch((err) => console.log(err));
-      })
+      },)
     },
-    
-    handleLikeClick: (element, user, id) => {      
-      if (
-        element.likes.some((item) => {
-          return item._id === user;
-        })
-      ) {
-        api
-          .deleteLike(id)
-          .then((data) => {
-            card.likeDelete(data)
-          })
-          .catch((err) => console.log(err));
-      } else {
-        api
-          .putLike(id)
-          .then((data) => {
-            card.likeCard(data)
-          })
-          .catch((err) => console.log(err));
-      }
-    } }, user)
-
-  return card.generateCard()
+    handleLikeClick: () => {
+      handleLikeClick(card, cardItem._id)
+    }}, user);
+    const elementCardItem = card.generateCard()    
+    card.toggleLike(cardItem)
+    cardList.setItem(elementCardItem)
 }
+
+function  handleLikeClick (card,id) {
+  const requestLike = card.isLiked() ? api.deleteLike(id) : api.putLike(id);
+
+  requestLike
+      .then((data) => {
+        card.toggleLike(data)
+      })
+      .catch((err) => console.log(err));
+  }
 
 function newCardSubmit() {
   addCardPopup.open()

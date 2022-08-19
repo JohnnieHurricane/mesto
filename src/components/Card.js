@@ -16,27 +16,33 @@ export default class Card {
       this._handleLikeClick = handleLikeClick
   };
 
-  likeCard(data) {
-    this._like.classList.add(this._config.cardLikeActiveClass);
-    this._likeCounter.textContent = data.likes.length;
-    this._likes = data.likes;
+  // likeCard(data) {
+  //   this._like.classList.add(this._config.cardLikeActiveClass);
+  //   this._likeCounter.textContent = data.likes.length;
+  //   this._likes = data.likes;
+  // }
+
+  // likeDelete(data) {
+  //   this._like.classList.remove(this._config.cardLikeActiveClass);
+  //   this._likeCounter.textContent = data.likes.length;
+  //   this._likes = data.likes;
+  // }
+
+  toggleLike(element) {
+    this._isLiked = element.likes.some((item) => {
+      return item._id === this._user
+    })
+
+    this._likeCounter.textContent = element.likes.length;
+    if (this._isLiked) {
+      this._like.classList.add(this._config.cardLikeActiveClass);
+    } else {
+      this._like.classList.remove(this._config.cardLikeActiveClass);
+    }
   }
 
-  likeDelete(data) {
-    this._like.classList.remove(this._config.cardLikeActiveClass);
-    this._likeCounter.textContent = data.likes.length;
-    this._likes = data.likes;
-  }
-
-  _isLiked() {
-    this._likeCounter.textContent = this._likes.length;
-    this._likes.forEach((item) => {
-      if (item._id == this._user) {
-        this._like.classList.add(this._config.cardLikeActiveClass);
-      } else {
-        this._like.classList.remove(this._config.cardLikeActiveClass);
-      }
-    });
+  isLiked() {
+    return this._isLiked
   }
 
   _removeCard() {
@@ -72,7 +78,6 @@ export default class Card {
     this._element.querySelector(".elements__title").textContent = this._name;
 
     this._checkOwner()
-    this._isLiked()
     this._setEventListeners()
     return this._element
   };
