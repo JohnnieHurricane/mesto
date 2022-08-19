@@ -54,7 +54,7 @@ const api = new Api(({
 Promise.all([api.getCards(), api.getUserInfoFromServer()])
   .then(([cardsData, userData]) => {
     user = userData._id;    
-    cardList.renderItems(cardsData);
+    cardList.renderItems(cardsData.reverse());
     userInfoData.setUserInfo(userData);    
   })
   .catch((err) => console.log(err));
