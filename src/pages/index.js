@@ -93,7 +93,7 @@ function handleSubmitNewCardCallback({ popupNewTitle, popupNewLink }) {
   api
     .postCard({ name: popupNewTitle, link: popupNewLink })
     .then((data) => {
-      createCard(data, user)
+      cardList.setItem(createCard(data, user))
       addCardPopup.close();
     })
     .catch((err) => console.log(err))
@@ -101,7 +101,7 @@ function handleSubmitNewCardCallback({ popupNewTitle, popupNewLink }) {
 }
 
 function cardRenderer(cardItem) {
-  createCard(cardItem, user)
+  cardList.setItem(createCard(cardItem, user))
 }
 
 function createCard(cardItem, user) {
@@ -124,7 +124,7 @@ function createCard(cardItem, user) {
     }}, user);
     const elementCardItem = card.generateCard()    
     card.toggleLike(cardItem)
-    cardList.setItem(elementCardItem)
+    return elementCardItem
 }
 
 function  handleLikeClick (card,id) {
